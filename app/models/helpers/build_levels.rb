@@ -1,3 +1,6 @@
+# load 'helpers/load_words.rb'
+# load 'helpers/build_levels.rb'
+
 Level.destroy_all
 
 word_ids = []
