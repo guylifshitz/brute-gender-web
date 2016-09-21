@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users
   get 'welcome/index'
 
@@ -6,7 +7,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root 'levels#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -16,6 +17,13 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+
+  resources :word
+
+  resources :levels do
+    resources :run, controller: 'levels/run'
+  end
+
 
   # Example resource route with options:
   #   resources :products do

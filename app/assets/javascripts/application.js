@@ -13,4 +13,27 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
+
+
+// jQuery(document).ready(function($) {
+//   $('#test').each(function () {
+//     alert("test2")
+//   });
+
+//   $("#buttonM").on("click", function() {
+//     alert("m");
+//   });
+//   $("#buttonF").on("click", function() {
+//     alert("f");
+//   });
+
+// });
+
+// $('document').ready(function() {
+//   alert("test1");
+//   if($('#main').length){
+//     alert("test2");
+//   }
+// });
