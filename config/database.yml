@@ -16,4 +16,8 @@ test:
 
 production:
   <<: *default
+  
+  username: <%= ENV['MYSQL_USERNAME'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
+
   database: brute_gender_production
