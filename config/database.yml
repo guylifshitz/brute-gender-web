@@ -1,8 +1,8 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  username: root
-  password:
+  username: <%= ENV['MYSQL_USERNAME'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
   host: 127.0.0.1
   port: 3306
 
@@ -17,7 +17,5 @@ test:
 production:
   <<: *default
   
-  username: <%= ENV['MYSQL_USERNAME'] %>
-  password: <%= ENV['MYSQL_PASSWORD'] %>
 
   database: brute_gender_production
