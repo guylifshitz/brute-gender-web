@@ -20,8 +20,10 @@ Rails.application.routes.draw do
 
   resources :word
 
-  resources :levels do
-    resources :run, controller: 'levels/run'
+  resources :levels
+
+  resources :level_instances do
+    resources :run, controller: 'level_instances/run'
   end
 
 

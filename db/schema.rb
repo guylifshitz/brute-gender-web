@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921010802) do
+ActiveRecord::Schema.define(version: 20160923025507) do
+
+  create_table "level_instances", force: :cascade do |t|
+    t.integer "level_id",      limit: 4
+    t.integer "user_id",       limit: 4
+    t.string  "words_ordered", limit: 255
+    t.integer "count",         limit: 4
+  end
 
   create_table "levels", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -40,11 +47,20 @@ ActiveRecord::Schema.define(version: 20160921010802) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "word_scores", force: :cascade do |t|
+    t.integer  "level_instance_id", limit: 4
+    t.integer  "user_id",           limit: 4
+    t.integer  "word_id",           limit: 4
+    t.boolean  "correct"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
   create_table "words", force: :cascade do |t|
     t.string   "word",          limit: 255
     t.string   "definition_en", limit: 255
     t.string   "definition_fr", limit: 255
-    t.integer  "gender",        limit: 4
+    t.string   "gender",        limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end

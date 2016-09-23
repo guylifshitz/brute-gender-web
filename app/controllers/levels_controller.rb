@@ -6,7 +6,8 @@ class LevelsController < ApplicationController
   steps :start, :word, :finished
 
   def index
+    ap "INDEX"
     @levels = Level.all
-  end 
+  end
 
 end

@@ -7,7 +7,7 @@ class CreateWords < ActiveRecord::Migration
       t.string   :definition_en
       t.string   :definition_fr
 
-      t.integer  :gender
+      t.string  :gender
 
       t.timestamps null: false
     end
