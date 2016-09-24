@@ -1,11 +1,11 @@
-<div class="jumbotron"> <div class="container">
+<div class="jumbotron" id="check_word"> 
+<div class="container">
     <h1 align="center"><%= @word_text %></h1>
     <p  align="center"><%= @definition %> </p>
 
     <div align="center">
 
     <% if @f_clicked %>
-      f clicked
       <% if @correct %>
         <button class="btn btn-lg btn-success" type="button"> F <span class="glyphicon glyphicon-ok" /></button>
       <% else %>
@@ -13,25 +13,22 @@
       <% end %>
       <button class="btn btn-lg" type="button">M</button>
     <% else %>
-      m clicked
       <button class="btn btn-lg" type="button">F</button>
       <% if @correct %>
         <button class="btn btn-lg btn-success" type="button">M<span class="glyphicon glyphicon-ok" /></button>
       <% else %>
         <button class="btn btn-lg btn-danger" type="button">M<span class="glyphicon glyphicon-remove" /></button>
       <% end %>
-
     <% end %>
     </div>
 
     <%= form_for @level_instance, url: wizard_path, method: :put do |f| %>
       <div class="row">
         <div class="col-sm-12 text-center"'>
-          <input type="submit" value="Next" class="btn btn-primary btn-lg">
+          <input type="submit" value="Next" id="next" class="btn btn-primary btn-lg hidden">
       </div>
     </div>
     <% end %>
-
   </div>
 </div>
 

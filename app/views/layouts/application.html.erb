@@ -23,6 +23,12 @@
     <li class="nav-item active">
      <% if user_signed_in? %>
         <li class="nav-item">
+       <%= link_to "Levels", levels_path %>
+        </li>
+        <li class="nav-item">
+       <%= link_to "Words", word_scores_path %>
+        </li>
+        <li class="nav-item">
        <%= link_to "Log out", destroy_session_path(:user), :method => :delete %>
         </li>
      <% else %>

@@ -1,18 +1,16 @@
 <div class="jumbotron">
   <div class="container">
-    <h1 align="center">Levels</h1>
-    <div align="center">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <h1 align="center">Levels</h1>
+      </div>
+      <div class="col-xs-8 col-xs-offset-2">
       <% @levels.each do |level| %>
-        
         <%= link_to level_instances_path(:level_id => level.id), :method => :post, :class => "btn btn-lg", :title => Level.find(level.id)[:description] do %>
-          <%= image_tag("todo.png", :border => 0, :alt => '', :title => '', :size => "80x80") %>
-          </br>
+          <%= image_tag("todo.png", :border => 0, :alt => '', :title => '', :size => "80x80", :class=>"img-responsive") %>
           <span class="level_title"><%= Level.find(level.id)[:name] %></span>
-          <h3><%= Level.find(level.id)[:name] %></h3>
         <% end %>
       <% end %>
     </div>
   </div>
 </div>
-
-

@@ -16,17 +16,17 @@ ActiveRecord::Schema.define(version: 20160923025507) do
   create_table "level_instances", force: :cascade do |t|
     t.integer "level_id",      limit: 4
     t.integer "user_id",       limit: 4
-    t.string  "words_ordered", limit: 255
+    t.string  "words_ordered", limit: 2000
     t.integer "count",         limit: 4
   end
 
   create_table "levels", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.string   "description", limit: 255
-    t.string   "words",       limit: 255
+    t.string   "words",       limit: 2000
     t.string   "statistics",  limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20160923025507) do
     t.string   "definition_en", limit: 255
     t.string   "definition_fr", limit: 255
     t.string   "gender",        limit: 255
+    t.integer  "frequency",     limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end

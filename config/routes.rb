@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   #   resources :products
 
   resources :word
+  resources :word_scores
 
   resources :levels
 

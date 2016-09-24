@@ -1,0 +1,30 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4  col-xs-offset-4">
+      <table class="table">
+
+        <thead>
+          <tr>
+            <th width="40%">Word</th>
+            <th width="20%">Gender</th>
+            <th width="20%">Seen</th>
+            <th width="20%">Correct</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @output_words.each do |word_score| %>
+            <tr>
+              <td align="left"><%= word_score[:word] %></td>
+              <td><%= word_score[:gender] %> </td>
+              <td><%= word_score[:count] %></td>
+              <td><%= (word_score[:correct_count]/word_score[:count].to_f*100).to_i %>%</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+     </div>
+    </div>
+  </div>
+</div>

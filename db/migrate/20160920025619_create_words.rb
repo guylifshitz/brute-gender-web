@@ -9,6 +9,8 @@ class CreateWords < ActiveRecord::Migration
 
       t.string  :gender
 
+      t.integer  :frequency
+
       t.timestamps null: false
     end
   end

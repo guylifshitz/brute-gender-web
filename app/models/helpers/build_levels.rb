@@ -1,11 +1,20 @@
 # load 'helpers/load_words.rb'
 # load 'helpers/build_levels.rb'
 
+level_size = 50
+
+
 Level.destroy_all
 
-word_ids = []
-Word.all.each do |w|
-  word_ids.append(w.id)
-end
+all_words  = Word.order("frequency DESC")
 
-Level.create({:name=>"Easy Level", :words => word_ids, :description => "Basic words youll see often"})
+counter = 0 
+word_ids = []
+all_words.each do |word|
+  word_ids.append(word.id)
+  counter = counter + 1
+  if counter % level_size == 0
+    Level.create({:name=>"Level #{counter/level_size}", :words => word_ids, :description => "Words you'll see."})
+    word_ids = []
+  end
+end

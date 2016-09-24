@@ -37,3 +37,28 @@
 //     alert("test2");
 //   }
 // });
+
+
+$(".check_word").ready
+{
+  setTimeout(function(){ $("#next").click(); }, 500);
+
+
+
+}
+
+document.onkeydown = function (e) {
+    e = e || window.event;
+
+    if (e.keyCode == 37)
+    {
+      $("#feminin").click();
+    }
+    if (e.keyCode == 39)
+    {
+      $("#masculin").click();
+    }
+
+      // 
+
+};
