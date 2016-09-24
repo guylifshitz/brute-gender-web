@@ -24,8 +24,13 @@ Rails.application.routes.draw do
   resources :levels
 
   resources :level_instances do
+    post :create_wrong_words_level, :on => :collection
     resources :run, controller: 'level_instances/run'
   end
+
+  # resource :level_instance do
+  #   post :create_wrong_words_level
+  # end
 
 
   # Example resource route with options:

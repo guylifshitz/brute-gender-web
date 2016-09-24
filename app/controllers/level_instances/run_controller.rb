@@ -16,12 +16,12 @@ class LevelInstances::RunController < ApplicationController
       @description = @level_instance.level[:description]
     when :show_word
       ap "show word"
-      @word_id = @level_instance.level.words[@level_instance.count]
+      @word_id = @level_instance.words_ordered[@level_instance.count]
       @word_text = Word.find(@word_id)[:word]
       @definition = Word.find(@word_id)[:definition_en]
     when :check_word
       ap "check word"
-      @word_id = @level_instance.level.words[@level_instance.count]
+      @word_id = @level_instance.words_ordered[@level_instance.count]
       @word_text = Word.find(@word_id)[:word]
       @word_gender = Word.find(@word_id)[:gender]
       @definition = Word.find(@word_id)[:definition_en]
@@ -69,7 +69,7 @@ class LevelInstances::RunController < ApplicationController
       #   @f_clicked = false
       # end
 
-      @word_id = @level_instance.level.words[@level_instance.count]
+      @word_id = @level_instance.words_ordered[@level_instance.count]
       @word = Word.find(@word_id)
 
       ap "word  gender"
@@ -96,7 +96,7 @@ class LevelInstances::RunController < ApplicationController
     when :check_word
       @level_instance.count = @level_instance.count + 1
 
-      if @level_instance.count < @level_instance.level.words.count
+      if @level_instance.count < @level_instance.words_ordered.count
         jump_to(:show_word)
       end
 

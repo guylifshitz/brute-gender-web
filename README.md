@@ -6,7 +6,8 @@ The website is not hosted yet.
 
 
 TODO:
-+ Make levels for the real words
-+ Statistics at end of level.
++ Statistics at end of level
 + Make level from words you got wrong 
 + Add definitions
++ Show level completness on level screen
++ Make levels based on category
