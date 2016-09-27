@@ -3,4 +3,5 @@ class LevelInstance < ActiveRecord::Base
 
   belongs_to :level, dependent: :destroy
   belongs_to :user, dependent: :destroy
+
 end

@@ -14,10 +14,11 @@
 ActiveRecord::Schema.define(version: 20160923025507) do
 
   create_table "level_instances", force: :cascade do |t|
-    t.integer "level_id",      limit: 4
-    t.integer "user_id",       limit: 4
-    t.string  "words_ordered", limit: 2000
-    t.integer "count",         limit: 4
+    t.integer "level_id",                   limit: 4
+    t.integer "user_id",                    limit: 4
+    t.string  "words_ordered",              limit: 2000
+    t.integer "count",                      limit: 4
+    t.integer "correct_completion_percent", limit: 4
   end
 
   create_table "levels", force: :cascade do |t|

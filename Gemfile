@@ -57,3 +57,4 @@ gem 'awesome_print'
 gem 'wicked'
 
 gem 'capistrano-passenger'
+gem 'nokogiri'

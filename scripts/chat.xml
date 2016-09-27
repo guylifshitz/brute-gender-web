@@ -1,0 +1,799 @@
+<article>
+    <title>chat</title>
+    <pageId>388</pageId>
+    <meta>
+      <category>Homographes non homophones en français</category>
+      <category>Jeux en français</category>
+      <category>Chats en français|*</category>
+      <category>Poissons en français</category>
+      <category>ch prononcés /tʃ/ en français</category>
+      <reference>DAF8</reference>
+      <reference>TLFi</reference>
+    </meta>
+    <text>
+      <pronunciations>
+        <pron area="France Paris">ʃa</pron>
+        <pron area="Québec">ʃɑ</pron>
+        <pron>tʃat</pron>
+      </pronunciations>
+      <etymology>
+        <etym>
+          <xml><i>(<innerLink ref="#nom commun 1">nom 1</innerLink>)</i><century>xii</century> du bas latin <foreignWord lang="la" sense="chat (domestique)">cattus</foreignWord>, gaulois <i>cattos</i>. le classique <i><innerLink ref="felis#la">felis</innerLink></i> désignait le <innerLink ref="chat sauvage d'europe">chat sauvage d'europe</innerLink> (<i><innerLink ref="felis silvestris silvestris">felis silvestris silvestris</innerLink></i>).</xml>
+          <txt>(xiie siècle) du bas latin cattus  (chat (domestique)), gaulois cattos. le classique felis désignait le chat sauvage d'europe (felis silvestris silvestris).</txt>
+        </etym>
+        <etym>
+          <xml><i>(<innerLink ref="#nom commun 2">nom 2</innerLink>)</i><century>xiii</century> probablement de l'ancien français <foreignWord lang="fro" sense="chat-château">chat</foreignWord>.</xml>
+          <txt>(xiiie siècle) probablement de l'ancien français chat  (chat-château).</txt>
+        </etym>
+        <etym>
+          <xml><i>(<innerLink ref="#nom commun 3">nom 3</innerLink>)</i><date>1997</date> emprunté à l'anglais <foreignWord lang="en" sense="discussion, bavardage">chat</foreignWord>.</xml>
+          <txt>(1997) emprunté à l'anglais chat  (discussion, bavardage).</txt>
+        </etym>
+      </etymology>
+      <pos type="nom" lemma="1" locution="0" homoNb="1" gender="m" number="s" equivFem="chatte">
+        <pronunciations>
+          <pron>ʃa</pron>
+        </pronunciations>
+        <paradigm>
+          <inflection form="chat" gracePOS="Ncms" prons="tʃat;ʃɑ;ʃa"/>
+        </paradigm>
+        <definitions>
+          <definition>
+            <gloss>
+              <xml><innerLink ref="mammifère">Mammifère</innerLink><innerLink ref="carnivore">carnivore</innerLink><innerLink ref="félin">félin</innerLink> de taille moyenne, au <innerLink ref="museau">museau</innerLink> court et arrondi, domestiqué, apprivoisé ou encore à l'état sauvage.</xml>
+              <txt>Mammifère carnivore félin de taille moyenne, au museau court et arrondi, domestiqué, apprivoisé ou encore à l'état sauvage.</txt>
+            </gloss>
+            <example>
+              <xml><i> le <b>chat</b> gris, un peu sauvage, nous regardait de loin, à travers la balustrade de l'escalier au fond, sans oser descendre.</i> , <i><linkWikiProject target="Histoire d'un conscrit de 1813/3">Histoire d'un conscrit de 1813</linkWikiProject></i>, J. Hetzel, 1864}}</xml>
+              <txt>le chat gris, un peu sauvage, nous regardait de loin, à travers la balustrade de l'escalier au fond, sans oser descendre. , Histoire d'un conscrit de 1813, J. Hetzel, 1864}}</txt>
+            </example>
+            <example>
+              <xml><i>Entre autres manies, mon oncle avait celle de tuer tous les <b>chats</b> qu'il rencontrait. Il faisait, à ces pauvres bêtes, une chasse impitoyable, une guerre acharnée de trappeur.</i> , <i>Contes cruels : Mon oncle</i>}}</xml>
+              <txt>Entre autres manies, mon oncle avait celle de tuer tous les chats qu'il rencontrait. Il faisait, à ces pauvres bêtes, une chasse impitoyable, une guerre acharnée de trappeur. , Contes cruels : Mon oncle}}</txt>
+            </example>
+            <example>
+              <xml><i>Soudain, d'un seul élan, </i>cela<i> se précipita sur lui, avec un miaulement plaintif et la queue droite. C'était un jeune <b>chat</b>, menu et décharné, qui frottait sa tête contre les jambes de Bert, en ronronnant.</i> }}</xml>
+              <txt>Soudain, d'un seul élan, cela se précipita sur lui, avec un miaulement plaintif et la queue droite. C'était un jeune chat, menu et décharné, qui frottait sa tête contre les jambes de Bert, en ronronnant. }}</txt>
+            </example>
+          </definition>
+          <definition>
+            <gloss>
+              <xml>Individu <innerLink ref="mâle">mâle</innerLink> de cet animal.</xml>
+              <txt>Individu mâle de cet animal.</txt>
+            </gloss>
+            <example>
+              <xml>
+                <i>Le <b>chat</b> ronronne sur mes genoux.</i>
+              </xml>
+              <txt>Le chat ronronne sur mes genoux.</txt>
+            </example>
+            <example>
+              <xml>
+                <i>Le <b>chat</b> en regardant passer la <b>chatte</b> du voisin se sent tout chose.</i>
+              </xml>
+              <txt>Le chat en regardant passer la chatte du voisin se sent tout chose.</txt>
+            </example>
+          </definition>
+          <definition>
+            <gloss>
+              <labels>
+                <label type="sem" value="par extension"/>
+              </labels>
+              <xml><innerLink ref="félin">Félin</innerLink>.</xml>
+              <txt>Félin.</txt>
+            </gloss>
+            <example>
+              <xml><b>Chat-tigre</b> Espèce de félin sauvage de l'Amérique méridionale.''</xml>
+              <txt>Chat-tigre Espèce de félin sauvage de l'Amérique méridionale.</txt>
+            </example>
+          </definition>
+          <definition>
+            <gloss>
+              <labels>
+                <label type="domain" value="poissons"/>
+              </labels>
+              <xml>Synonyme de <innerLink ref="poisson-chat commun">poisson-chat commun</innerLink>.</xml>
+              <txt>Synonyme de poisson-chat commun.</txt>
+            </gloss>
+          </definition>
+          <definition>
+            <gloss>
+              <labels>
+                <label type="domain" value="jeux"/>
+              </labels>
+              <xml>Synonyme de <innerLink ref="loup">loup</innerLink> : jeu d'enfants où un des participants appelé <i>chat</i> doit toucher un de ses camarades qui devient le <i>chat</i> à son tour.</xml>
+              <txt>Synonyme de loup : jeu d'enfants où un des participants appelé chat doit toucher un de ses camarades qui devient le chat à son tour.</txt>
+            </gloss>
+            <example>
+              <xml>
+                <i>Les enfants jouent à <b>chat</b> dans la cour de récréation.</i>
+              </xml>
+              <txt>Les enfants jouent à chat dans la cour de récréation.</txt>
+            </example>
+          </definition>
+          <definition>
+            <gloss>
+              <labels>
+                <label type="domain" value="mécanique"/>
+              </labels>
+              <xml><innerLink ref="instrument">Instrument</innerLink> à <innerLink ref="branche">branche</innerLink>s de fer <innerLink ref="élastique">élastique</innerLink>s et <innerLink ref="pointu">pointu</innerLink>es, dont on se sert pour <innerLink ref="visiter">visiter</innerLink> l'âme d'une <innerLink ref="pièce">pièce</innerLink> de <innerLink ref="canon">canon</innerLink>, <innerLink ref="afin">afin</innerLink> de <innerLink ref="découvrir">découvrir</innerLink> les <innerLink ref="chambre">chambre</innerLink>s qui s'y <innerLink ref="trouver">trouvent</innerLink>.</xml>
+              <txt>Instrument à branches de fer élastiques et pointues, dont on se sert pour visiter l'âme d'une pièce de canon, afin de découvrir les chambres qui s'y trouvent.</txt>
+            </gloss>
+          </definition>
+          <definition>
+            <gloss>
+              <labels>
+                <label type="attitudinal" value="vulgaire"/>
+              </labels>
+              <xml><innerLink ref="sexe">Sexe</innerLink> de la femme, <innerLink ref="chatte">chatte</innerLink>.</xml>
+              <txt>Sexe de la femme, chatte.</txt>
+            </gloss>
+            <example>
+              <xml><i>Culculine se baissa et, relevant la chemise, découvrit des cuisses rondes et grosses qui se réunissaient sous le <b>chat</b> blond cendré comme les cheveux.</i> , ''<linkWikiProject target="Les Onze Mille Verges">Les Onze Mille Verges</linkWikiProject>, chap. II}}</xml>
+              <txt>Culculine se baissa et, relevant la chemise, découvrit des cuisses rondes et grosses qui se réunissaient sous le chat blond cendré comme les cheveux. , Les Onze Mille Verges, chap. II}}</txt>
+            </example>
+          </definition>
+          <definition>
+            <gloss>
+              <labels>
+                <label type="diatopic" value="Lorraine"/>
+              </labels>
+              <xml><innerLink ref="palatine">Palatine</innerLink>, sorte de fourrure que les femmes portent au cou.</xml>
+              <txt>Palatine, sorte de fourrure que les femmes portent au cou.</txt>
+            </gloss>
+          </definition>
+        </definitions>
+        <subsection type="semRel">
+          <item type="synonym">chat domestique</item>
+          <item type="synonym">greffier</item>
+          <item type="synonym">Grippeminaud</item>
+          <item type="synonym">minet</item>
+          <item type="synonym">mistigri</item>
+          <item type="synonym">Raminagrobis</item>
+          <item type="synonym">matou</item>
+          <item type="synonym">jeu du loup</item>
+          <item type="hyperonym">félidé</item>
+          <item type="hyponym">chat à pieds noirs</item>
+          <item type="hyponym">chat à tête plate</item>
+          <item type="hyponym">chat bai</item>
+          <item type="hyponym">chat de Biet</item>
+          <item type="hyponym">chat de Geoffroy</item>
+          <item type="hyponym">chat de Pallas</item>
+          <item type="hyponym">chat de Temminck</item>
+          <item type="hyponym">chat des Andes</item>
+          <item type="hyponym">chat des pampas</item>
+          <item type="hyponym">chat des sables</item>
+          <item type="hyponym">chat domestique</item>
+          <item type="hyponym">chat doré d'Afrique</item>
+          <item type="hyponym">chat doré d'Asie</item>
+          <item type="hyponym">chat-léopard de Chine</item>
+          <item type="hyponym">chat manul</item>
+          <item type="hyponym">chat marbré</item>
+          <item type="hyponym">chat orné</item>
+          <item type="hyponym">chat pêcheur</item>
+          <item type="hyponym">chat rubigineux</item>
+          <item type="hyponym">chat sauvage</item>
+          <item type="hyponym">chat-tigre</item>
+          <item type="hyponym">chat-tigre d'Afrique</item>
+          <item type="hyponym">chat-tigre du Bengale</item>
+          <item type="hyponym">chaus</item>
+          <item type="synonym">chat</item>
+          <item type="synonym">chat-bite</item>
+          <item type="synonym">loup</item>
+          <item type="synonym">motte</item>
+          <item type="synonym">ours</item>
+          <item type="synonym">peste</item>
+          <item type="synonym">pie</item>
+          <item type="synonym">touche-touche</item>
+          <item type="synonym">tag</item>
+          <item type="synonym">trappe-trappe</item>
+          <item type="synonym">t'y es</item>
+        </subsection>
+        <subsection type="relatedVocabulary">
+          <item>ailourophobie</item>
+          <item>chaton</item>
+          <item>chatte</item>
+          <item>feuler</item>
+          <item>feulement</item>
+          <item>galéphobie</item>
+          <item>miauler</item>
+          <item>miaulement</item>
+          <item>ronronner</item>
+          <item>ronronnement</item>
+        </subsection>
+        <subsection type="morpho">
+          <item type="derivative">à bon chat, bon rat</item>
+          <item type="derivative">acheter chat en poche</item>
+          <item type="derivative">amoureuse comme une chatte</item>
+          <item type="derivative">appeler un chat un chat</item>
+          <item type="derivative">avoir d'autres chats à fouetter</item>
+          <item type="derivative">avoir un chat dans la gorge</item>
+          <item type="derivative">barbe de chat</item>
+          <item type="derivative">bouillie pour chats</item>
+          <item type="derivative">bouillie pour les chats</item>
+          <item type="derivative">cataire</item>
+          <item type="derivative">c'est le chat</item>
+          <item type="derivative">chat à neuf queues</item>
+          <item type="derivative">chat à pattes noires</item>
+          <item type="derivative">chat à pieds noirs</item>
+          <item type="derivative">chat à tête plate</item>
+          <item type="derivative">chat angora</item>
+          <item type="derivative">chat bai</item>
+          <item type="derivative">Chat botté</item>
+          <item type="derivative">chat-brûlé</item>
+          <item type="derivative">chat-cervier</item>
+          <item type="derivative">chat-chasteil</item>
+          <item type="derivative">chat de Biet</item>
+          <item type="derivative">chat de Chine</item>
+          <item type="derivative">chat de Geoffroy</item>
+          <item type="derivative">chat de gouttière</item>
+          <item type="derivative">chat de jungle</item>
+          <item type="derivative">chat de l'île de Man</item>
+          <item type="derivative">chat de Margueritte</item>
+          <item type="derivative">chat de Pallas</item>
+          <item type="derivative">chat de Temminck</item>
+          <item type="derivative">chat de ruelle</item>
+          <item type="derivative">chat des Andes</item>
+          <item type="derivative">chat des marais</item>
+          <item type="derivative">chat des pampas</item>
+          <item type="derivative">chat des sables</item>
+          <item type="derivative">chat domestique</item>
+          <item type="derivative">chat doré</item>
+          <item type="derivative">chat doré d'Afrique</item>
+          <item type="derivative">chat doré d'Asie</item>
+          <item type="derivative">chat du désert</item>
+          <item type="derivative">chat du Général Margueritte</item>
+          <item type="derivative">chat échaudé craint l'eau froide</item>
+          <item type="derivative">chat-fourré</item>
+          <item type="derivative">chat haret</item>
+          <item type="derivative">chat-huant</item>
+          <item type="derivative">chat-léopard</item>
+          <item type="derivative">chat-léopard de Chine</item>
+          <item type="derivative">chat-léopard de l'Inde</item>
+          <item type="derivative">chat-léopard du Bengale</item>
+          <item type="derivative">chat manul</item>
+          <item type="derivative">chat marbré</item>
+          <item type="derivative">chat musqué</item>
+          <item type="derivative">chat orné</item>
+          <item type="derivative">chat pêcheur</item>
+          <item type="derivative">chat-pard</item>
+          <item type="derivative">chat perché</item>
+          <item type="derivative">chat persan</item>
+          <item type="derivative">chat-rochier</item>
+          <item type="derivative">chat rougeâtre</item>
+          <item type="derivative">chat rubigineux</item>
+          <item type="derivative">chat sauvage</item>
+          <item type="derivative">chat-tacheté</item>
+          <item type="derivative">chat-tigre</item>
+          <item type="derivative">chat-tigre du Bengale</item>
+          <item type="derivative">chataire</item>
+          <item type="derivative">chatière</item>
+          <item type="derivative">chatillon</item>
+          <item type="derivative">chatoiement</item>
+          <item type="derivative">chaton</item>
+          <item type="derivative">chatonner</item>
+          <item type="derivative">chatoyant</item>
+          <item type="derivative">chatoyer</item>
+          <item type="derivative">chatron</item>
+          <item type="derivative">chatte</item>
+          <item type="derivative">chattement</item>
+          <item type="derivative">chattemite</item>
+          <item type="derivative">chattepeleuse</item>
+          <item type="derivative">chattepelouse</item>
+          <item type="derivative">chatteplouse</item>
+          <item type="derivative">chatter</item>
+          <item type="derivative">chatterie</item>
+          <item type="derivative">curieux comme un chat</item>
+          <item type="derivative">déchatonner</item>
+          <item type="derivative">donner sa langue au chat</item>
+          <item type="derivative">enchatonnement</item>
+          <item type="derivative">enchatonner</item>
+          <item type="derivative">entrechat</item>
+          <item type="derivative">étrangle-chat</item>
+          <item type="derivative">éveiller le chat qui dort</item>
+          <item type="derivative">friande comme une chatte</item>
+          <item type="derivative">guetter comme le chat guette la souris</item>
+          <item type="derivative">happe-chat</item>
+          <item type="derivative">il n'y a pas de quoi fouetter un chat</item>
+          <item type="derivative">il n'y a pas un chat</item>
+          <item type="derivative">jouer au chat et à la souris</item>
+          <item type="derivative">la nuit, tous les chats sont gris</item>
+          <item type="derivative">langue-de-chat</item>
+          <item type="derivative">œil-de-chat</item>
+          <item type="derivative">oiseau-chat</item>
+          <item type="derivative">pas un chat</item>
+          <item type="derivative">pied-de-chat</item>
+          <item type="derivative">poisson-chat</item>
+          <item type="derivative">queue-de-chat</item>
+          <item type="derivative">queue-du-chat</item>
+          <item type="derivative">retomber comme un chat sur ses pattes</item>
+          <item type="derivative">s'entendre comme chien et chat</item>
+          <item type="derivative">s'entendre comme chiens et chats</item>
+          <item type="derivative">se servir de la patte du chat pour tirer les marrons du feu</item>
+          <item type="derivative">tête-de-chat</item>
+          <item type="derivative">vendre chat en poche</item>
+        </subsection>
+        <subsection type="alternativeForm">
+          <item>béarnais</item>
+          <item>gat</item>
+        </subsection>
+        <translations>
+          <trans lang="conv">Felis silvestris catus</trans>
+          <trans lang="abx">miyong</trans>
+          <trans lang="af">kat</trans>
+          <trans lang="agn">kosi</trans>
+          <trans lang="ak">agyinamoa</trans>
+          <trans lang="sq">mace</trans>
+          <trans lang="de">Katze</trans>
+          <trans lang="alt">киске</trans>
+          <trans lang="en">cat</trans>
+          <trans lang="ang">catt</trans>
+          <trans lang="ar">قط</trans>
+          <trans lang="ar">قطة</trans>
+          <trans lang="ar">هر</trans>
+          <trans lang="arz">قط</trans>
+          <trans lang="arz">قطة</trans>
+          <trans lang="ayl">قطوس</trans>
+          <trans lang="ayl">قطوسة</trans>
+          <trans lang="ary">مش</trans>
+          <trans lang="arc">ܫܘܢܪܐ</trans>
+          <trans lang="arc">ܫܘܢܪܬܐ</trans>
+          <trans lang="hy">կատու</trans>
+          <trans lang="ast">gatu</trans>
+          <trans lang="ba">бесәй</trans>
+          <trans lang="bm">jakuma</trans>
+          <trans lang="bdy">budhigehn</trans>
+          <trans lang="bdy">budhigahn</trans>
+          <trans lang="dsb">kócka</trans>
+          <trans lang="dsb">kót</trans>
+          <trans lang="eu">katu</trans>
+          <trans lang="bar">Katz</trans>
+          <trans lang="bar">Koda</trans>
+          <trans lang="bem">pushi</trans>
+          <trans lang="bn">বিড়াল</trans>
+          <trans lang="bn">িবলাড়</trans>
+          <trans lang="be">кот</trans>
+          <trans lang="be">кошка</trans>
+          <trans lang="bs">mačka</trans>
+          <trans lang="bs">mačak</trans>
+          <trans lang="br">kazh</trans>
+          <trans lang="br">kaz</trans>
+          <trans lang="br">kizier</trans>
+          <trans lang="bg">котка</trans>
+          <trans lang="bg">котак</trans>
+          <trans lang="bg">котарак</trans>
+          <trans lang="ca">gat</trans>
+          <trans lang="ca">mix</trans>
+          <trans lang="ch">gatu</trans>
+          <trans lang="chr">ᏪᏌ</trans>
+          <trans lang="zh">猫</trans>
+          <trans lang="ciw">gaazhagens</trans>
+          <trans lang="si">පූසා</trans>
+          <trans lang="cop">ⲉⲙⲟⲩ</trans>
+          <trans lang="ko">고양이</trans>
+          <trans lang="ko">야옹이</trans>
+          <trans lang="kw">cath</trans>
+          <trans lang="co">gattu</trans>
+          <trans lang="co">ghjattu</trans>
+          <trans lang="tcs">pusiket</trans>
+          <trans lang="cr">ᐴᔒ</trans>
+          <trans lang="hr">mačka</trans>
+          <trans lang="da">huskat</trans>
+          <trans lang="da">kat</trans>
+          <trans lang="duj">marurrumburr</trans>
+          <trans lang="egy">mỉw</trans>
+          <trans lang="myv">псака</trans>
+          <trans lang="myv">катка</trans>
+          <trans lang="myv">писай</trans>
+          <trans lang="es">gato</trans>
+          <trans lang="es">gata</trans>
+          <trans lang="eo">kato</trans>
+          <trans lang="et">kass</trans>
+          <trans lang="ee">dadi</trans>
+          <trans lang="ewo">essinga</trans>
+          <trans lang="fo">ketta</trans>
+          <trans lang="fo">húsketta</trans>
+          <trans lang="fo">køttur</trans>
+          <trans lang="fo">húskøttur</trans>
+          <trans lang="fi">kissa</trans>
+          <trans lang="fon">ase</trans>
+          <trans lang="fon">awii</trans>
+          <trans lang="fon">gbewii</trans>
+          <trans lang="fur">ğhat</trans>
+          <trans lang="fy">kat</trans>
+          <trans lang="gd">cat</trans>
+          <trans lang="ga">cat</trans>
+          <trans lang="gag">kedi</trans>
+          <trans lang="gl">gato</trans>
+          <trans lang="cy">cath</trans>
+          <trans lang="sdn">ghjattu</trans>
+          <trans lang="lg">kapa</trans>
+          <trans lang="lg">pusi</trans>
+          <trans lang="ka">კატა</trans>
+          <trans lang="gil">katama</trans>
+          <trans lang="gni">minyawoo</trans>
+          <trans lang="el">γάτα</trans>
+          <trans lang="el">γάτος</trans>
+          <trans lang="grc">γαλή</trans>
+          <trans lang="grc">αἴλουρος</trans>
+          <trans lang="ht">chat</trans>
+          <trans lang="hsb">kočka</trans>
+          <trans lang="haw">pōpoki</trans>
+          <trans lang="he">חתול</trans>
+          <trans lang="he">חתולה</trans>
+          <trans lang="hoi">goose</trans>
+          <trans lang="hu">macska</trans>
+          <trans lang="hu">kandúr</trans>
+          <trans lang="sah">куоска</trans>
+          <trans lang="io">kato</trans>
+          <trans lang="ilo">pusa</trans>
+          <trans lang="id">kucing</trans>
+          <trans lang="ia">catto</trans>
+          <trans lang="ia">catta</trans>
+          <trans lang="is">kisa</trans>
+          <trans lang="is">köttur</trans>
+          <trans lang="it">gatto</trans>
+          <trans lang="it">gatta</trans>
+          <trans lang="it">micio</trans>
+          <trans lang="it">micia</trans>
+          <trans lang="ja">猫</trans>
+          <trans lang="kab">amchiche</trans>
+          <trans lang="kab">amcic</trans>
+          <trans lang="csb">kòt</trans>
+          <trans lang="kld">burrgiyan</trans>
+          <trans lang="krc">киштик</trans>
+          <trans lang="kk">мысық</trans>
+          <trans lang="kjh">хоосха</trans>
+          <trans lang="km">ឆ្មា</trans>
+          <trans lang="kg">niau</trans>
+          <trans lang="rw">jangwe</trans>
+          <trans lang="ky">мышык</trans>
+          <trans lang="kok">माज़रा</trans>
+          <trans lang="kum">мишик</trans>
+          <trans lang="ku">پشیله‌</trans>
+          <trans lang="ku">pisîng</trans>
+          <trans lang="ku">pisîk</trans>
+          <trans lang="lo">ແມວ</trans>
+          <trans lang="la">feles</trans>
+          <trans lang="la">felis</trans>
+          <trans lang="la">cattus</trans>
+          <trans lang="lv">kaķis</trans>
+          <trans lang="ln">nyáu</trans>
+          <trans lang="ln">púsu</trans>
+          <trans lang="ln">nkɔ́ndɔkɔ́</trans>
+          <trans lang="lt">katė</trans>
+          <trans lang="lt">katinas</trans>
+          <trans lang="jbo">mlatu</trans>
+          <trans lang="lmo">gatt</trans>
+          <trans lang="lb">Kaz</trans>
+          <trans lang="lb">Kueder</trans>
+          <trans lang="mk">мачка</trans>
+          <trans lang="mk">мачор</trans>
+          <trans lang="ms">kucing</trans>
+          <trans lang="ml">പൂച്ച</trans>
+          <trans lang="mg">saka</trans>
+          <trans lang="mg">piso</trans>
+          <trans lang="mt">qattus</trans>
+          <trans lang="mt">qattusa</trans>
+          <trans lang="mt">qtates</trans>
+          <trans lang="gv">kayt</trans>
+          <trans lang="mta">miyong</trans>
+          <trans lang="mi">poti</trans>
+          <trans lang="mi">ngeru</trans>
+          <trans lang="mr">मांजर</trans>
+          <trans lang="mr">बोका</trans>
+          <trans lang="mrc">posh</trans>
+          <trans lang="men">gɔ́nɛ̌</trans>
+          <trans lang="mn">муур</trans>
+          <trans lang="mn">мий</trans>
+          <trans lang="mwf">yirrthip</trans>
+          <trans lang="nv">gídí</trans>
+          <trans lang="nv">mósí</trans>
+          <trans lang="nv">másí</trans>
+          <trans lang="nl">huiskat</trans>
+          <trans lang="nl">kat</trans>
+          <trans lang="nl">poes</trans>
+          <trans lang="nl">kater</trans>
+          <trans lang="ne">बिरालो</trans>
+          <trans lang="niy">kayidzangò</trans>
+          <trans lang="nil">yossef</trans>
+          <trans lang="nog">мысык</trans>
+          <trans lang="fra-nor">cat</trans>
+          <trans lang="no">huskatt</trans>
+          <trans lang="no">katt</trans>
+          <trans lang="no">katte</trans>
+          <trans lang="nov">kate</trans>
+          <trans lang="nov">kato</trans>
+          <trans lang="nov">kata</trans>
+          <trans lang="oc">gat</trans>
+          <trans lang="oc">cat</trans>
+          <trans lang="os">гӕды</trans>
+          <trans lang="ur">بيلی</trans>
+          <trans lang="pi">biḷāla</trans>
+          <trans lang="pap">pushi</trans>
+          <trans lang="pa">ਬਿੱਲੀ</trans>
+          <trans lang="fa">گربه</trans>
+          <trans lang="fa">پشک</trans>
+          <trans lang="ff">gnari</trans>
+          <trans lang="pms">gat</trans>
+          <trans lang="plodarisch">kòtze</trans>
+          <trans lang="pl">kot</trans>
+          <trans lang="pl">kotka</trans>
+          <trans lang="pl">kocur</trans>
+          <trans lang="pl">kocica</trans>
+          <trans lang="pl">kotek</trans>
+          <trans lang="pt">gato</trans>
+          <trans lang="pt">gata</trans>
+          <trans lang="rom">țițây</trans>
+          <trans lang="rom">mâçka</trans>
+          <trans lang="rom">muca</trans>
+          <trans lang="ro">pisică</trans>
+          <trans lang="ro">писикэ</trans>
+          <trans lang="ru">кот</trans>
+          <trans lang="ru">кошка</trans>
+          <trans lang="se">bussá</trans>
+          <trans lang="se">gáhttu</trans>
+          <trans lang="sm">pusi</trans>
+          <trans lang="sa">अखुभुज्</trans>
+          <trans lang="sa">बिडालः</trans>
+          <trans lang="sc">munninnu</trans>
+          <trans lang="sc">gattu</trans>
+          <trans lang="sr">мачка</trans>
+          <trans lang="sei">miist</trans>
+          <trans lang="sei">ziix canaao</trans>
+          <trans lang="sei">ziix ihamoc ano catax</trans>
+          <trans lang="zdj">paha</trans>
+          <trans lang="scn">gattu</trans>
+          <trans lang="sk">mačka</trans>
+          <trans lang="sk">kocúr</trans>
+          <trans lang="sl">maček</trans>
+          <trans lang="sl">mačka</trans>
+          <trans lang="ses">muusi</trans>
+          <trans lang="ses">hayla</trans>
+          <trans lang="nso">katse</trans>
+          <trans lang="sv">katt</trans>
+          <trans lang="sw">paka</trans>
+          <trans lang="syr">ܫܘܢܪܐ</trans>
+          <trans lang="syr">ܫܘܢܪܬܐ</trans>
+          <trans lang="syr">שונרא</trans>
+          <trans lang="syr">שונרתא</trans>
+          <trans lang="tg">гурба</trans>
+          <trans lang="tg">пишак</trans>
+          <trans lang="tl">pusa</trans>
+          <trans lang="ta">பூனை</trans>
+          <trans lang="crh">mıșıq</trans>
+          <trans lang="tt">мәче</trans>
+          <trans lang="tt">песи</trans>
+          <trans lang="cs">kočka</trans>
+          <trans lang="cs">kocour</trans>
+          <trans lang="te">పిల్లి</trans>
+          <trans lang="th">แมว</trans>
+          <trans lang="th">วิฬาร์</trans>
+          <trans lang="twf">mų̀si'ína</trans>
+          <trans lang="kim">һөөшкэ</trans>
+          <trans lang="tsolyáni">tiúni-kh</trans>
+          <trans lang="tr">kedi</trans>
+          <trans lang="tr">pisi</trans>
+          <trans lang="tk">pişik</trans>
+          <trans lang="uk">кіт</trans>
+          <trans lang="uk">кішка</trans>
+          <trans lang="uum">мышых</trans>
+          <trans lang="vec">gato</trans>
+          <trans lang="vi">mèo</trans>
+          <trans lang="wls">pusi</trans>
+          <trans lang="wa">tchèt</trans>
+          <trans lang="wa">cat</trans>
+          <trans lang="wim">ku'waak</trans>
+          <trans lang="wo">muus</trans>
+          <trans lang="wo">wundu</trans>
+          <trans lang="yi">קאץ</trans>
+          <trans lang="yij">buthi</trans>
+          <trans lang="zu">ikati</trans>
+          <trans lang="de">Kater</trans>
+          <trans lang="en">tomcat</trans>
+          <trans lang="br">kazh</trans>
+          <trans lang="co">ghjattu</trans>
+          <trans lang="gu">બિલાડી</trans>
+          <trans lang="gu">બિલાડો</trans>
+          <trans lang="hi">बिल्ली</trans>
+          <trans lang="hi">बिल्ला</trans>
+          <trans lang="lb">Kueder</trans>
+          <trans lang="fra-nor">cat</trans>
+          <trans lang="plodarisch">kainz</trans>
+          <trans lang="pl">kot</trans>
+          <trans lang="pl">kocur</trans>
+          <trans lang="pt">gato</trans>
+          <trans lang="cs">kocour</trans>
+          <trans lang="af">kat</trans>
+          <trans lang="de">Katze</trans>
+          <trans lang="en">cat</trans>
+          <trans lang="az">pişik</trans>
+          <trans lang="bm">jakuma</trans>
+          <trans lang="eu">katu</trans>
+          <trans lang="bs">mačka</trans>
+          <trans lang="bs">mačak</trans>
+          <trans lang="br">kaz</trans>
+          <trans lang="br">kazh</trans>
+          <trans lang="br">kizhier</trans>
+          <trans lang="br">kazhez</trans>
+          <trans lang="br">kazhezed</trans>
+          <trans lang="bg">котка</trans>
+          <trans lang="ca">felí</trans>
+          <trans lang="ca">felina</trans>
+          <trans lang="chr">ᏪᏌ</trans>
+          <trans lang="chr">ᏪᏏ</trans>
+          <trans lang="zh">猫</trans>
+          <trans lang="hr">mačka</trans>
+          <trans lang="da">kat</trans>
+          <trans lang="es">felino</trans>
+          <trans lang="es">felina</trans>
+          <trans lang="eo">kato</trans>
+          <trans lang="et">kaslane</trans>
+          <trans lang="fo">ketta</trans>
+          <trans lang="fo">húsketta</trans>
+          <trans lang="fo">køttur</trans>
+          <trans lang="fo">húskøttur</trans>
+          <trans lang="fil">pusa</trans>
+          <trans lang="fi">kissaeläin</trans>
+          <trans lang="fy">kat</trans>
+          <trans lang="gd">cat</trans>
+          <trans lang="ga">cat</trans>
+          <trans lang="el">αιλουροειδές</trans>
+          <trans lang="el">αίλουρος</trans>
+          <trans lang="he">חתול</trans>
+          <trans lang="hu">macska</trans>
+          <trans lang="id">kucing</trans>
+          <trans lang="ia">felin</trans>
+          <trans lang="is">köttur</trans>
+          <trans lang="it">felino</trans>
+          <trans lang="it">felina</trans>
+          <trans lang="pam">pusa</trans>
+          <trans lang="la">feles</trans>
+          <trans lang="la">felis</trans>
+          <trans lang="lv">kaķis</trans>
+          <trans lang="lt">katė</trans>
+          <trans lang="jbo">mlatu</trans>
+          <trans lang="mk">мачка</trans>
+          <trans lang="nl">kat</trans>
+          <trans lang="fra-nor">cat</trans>
+          <trans lang="no">kattedyr</trans>
+          <trans lang="no">katt</trans>
+          <trans lang="nov">kate</trans>
+          <trans lang="nov">kato</trans>
+          <trans lang="nov">kata</trans>
+          <trans lang="ur">بلى</trans>
+          <trans lang="ff">gniari</trans>
+          <trans lang="pl">kot</trans>
+          <trans lang="pt">felino</trans>
+          <trans lang="pt">felina</trans>
+          <trans lang="ro">pisică</trans>
+          <trans lang="ro">motan</trans>
+          <trans lang="ro">cotoi</trans>
+          <trans lang="ro">mâță</trans>
+          <trans lang="ru">кошка</trans>
+          <trans lang="sr">мачка</trans>
+          <trans lang="sk">mačka</trans>
+          <trans lang="sl">mačka</trans>
+          <trans lang="sv">kattdjur</trans>
+          <trans lang="cs">šelma kočkovitá</trans>
+          <trans lang="te">పిల్లి</trans>
+          <trans lang="te">మార్జాలము</trans>
+          <trans lang="th">แมว</trans>
+          <trans lang="tr">kedi</trans>
+          <trans lang="tk">pişik</trans>
+          <trans lang="vi">mèo</trans>
+          <trans lang="kk">қуыспақ</trans>
+          <trans lang="kg">nsaka</trans>
+        </translations>
+      </pos>
+      <pos type="nom" lemma="1" locution="0" homoNb="2" gender="m" number="s">
+        <pronunciations>
+          <pron>ʃa</pron>
+        </pronunciations>
+        <paradigm>
+          <inflection form="chat" gracePOS="Ncms" prons="ʃa"/>
+          <inflection form="chats" gracePOS="Ncmp" prons="ʃa"/>
+        </paradigm>
+        <definitions>
+          <definition>
+            <gloss>
+              <xml><innerLink ref="chat-château">Chat-château</innerLink> ; sorte de couloir couvert servant d'<innerLink ref="abri">abri</innerLink> à un <innerLink ref="bélier">bélier</innerLink> ainsi qu'à ses utilisateurs, recouvert de peaux humides afin de limiter les incendies.</xml>
+              <txt>Chat-château ; sorte de couloir couvert servant d'abri à un bélier ainsi qu'à ses utilisateurs, recouvert de peaux humides afin de limiter les incendies.</txt>
+            </gloss>
+            <example>
+              <xml><i> il était impossible d'empêcher des assaillants nombreux et hardis, protégés par des pavois et même par des <b><i>chats</i></b> (sortes de chariots recouverts de madriers et de peaux) de saper le pied des tours.</i> , <i><linkWikiProject target="La Cité de Carcassonne/éd. 1888/Description des défenses">La Cité de Carcassonne</linkWikiProject></i>, 1888}}</xml>
+              <txt>il était impossible d'empêcher des assaillants nombreux et hardis, protégés par des pavois et même par des chats (sortes de chariots recouverts de madriers et de peaux) de saper le pied des tours. , La Cité de Carcassonne, 1888}}</txt>
+            </example>
+            <example>
+              <xml>
+                <i>Aussi le bélier avait-il besoin d'être protégé des actions des assiégés : il était donc habituellement couvert par un <b>chat</b> ou manteau.</i>
+              </xml>
+              <txt>Aussi le bélier avait-il besoin d'être protégé des actions des assiégés : il était donc habituellement couvert par un chat ou manteau.</txt>
+            </example>
+          </definition>
+          <definition>
+            <gloss>
+              <labels>
+                <label type="sem" value="analogie"/>
+              </labels>
+              <xml>Bélier recouvert par un chat.</xml>
+              <txt>Bélier recouvert par un chat.</txt>
+            </gloss>
+          </definition>
+          <definition>
+            <gloss>
+              <labels>
+                <label type="other" value="mari"/>
+              </labels>
+              <xml><innerLink ref="navire#fr">Navire</innerLink> servant au chargement et au déchargement des navires dans les ports (<innerLink ref="allège">allège</innerLink>) ou au cabotage le long des côtes (<innerLink ref="chasse-marée">chasse-marée</innerLink>).</xml>
+              <txt>Navire servant au chargement et au déchargement des navires dans les ports (allège) ou au cabotage le long des côtes (chasse-marée).</txt>
+            </gloss>
+          </definition>
+          <definition>
+            <gloss>
+              <xml><innerLink ref="yacht#fr">Yacht</innerLink> à voiles utilisé dans les régates en raison de sa rapidité.</xml>
+              <txt>Yacht à voiles utilisé dans les régates en raison de sa rapidité.</txt>
+            </gloss>
+            <example>
+              <xml><i>Elle </i>[la mer]<i> tarabustait de son mieux toutes les embarcations, les chaloupes, les barges, les remorqueurs, les yachts blancs et noirs, les pointus, les stars, les <b>chats</b>.</i> , <i>La Mort est un commencement, Le Bal des sauvages</i>, 1946}}</xml>
+              <txt>Elle [la mer] tarabustait de son mieux toutes les embarcations, les chaloupes, les barges, les remorqueurs, les yachts blancs et noirs, les pointus, les stars, les chats. , La Mort est un commencement, Le Bal des sauvages, 1946}}</txt>
+            </example>
+          </definition>
+        </definitions>
+      </pos>
+      <pos type="nom" lemma="1" locution="0" homoNb="3" gender="m" number="s">
+        <pronunciations>
+          <pron>tʃat</pron>
+        </pronunciations>
+        <paradigm>
+          <inflection form="chat" gracePOS="Ncms" prons="tʃat"/>
+          <inflection form="chats" gracePOS="Ncmp" prons="tʃat"/>
+        </paradigm>
+        <definitions>
+          <definition>
+            <gloss>
+              <labels>
+                <label type="domain" value="internet"/>
+              </labels>
+              <xml><innerLink ref="clavardage">Clavardage</innerLink>, <innerLink ref="communication">communication</innerLink> textuelle directe via <innerLink ref="Internet">Internet</innerLink>.</xml>
+              <txt>Clavardage, communication textuelle directe via Internet.</txt>
+            </gloss>
+          </definition>
+          <definition>
+            <gloss>
+              <labels>
+                <label type="domain" value="internet"/>
+              </labels>
+              <xml><innerLink ref="clavardoir">Clavardoir</innerLink>, <innerLink ref="site">site</innerLink> internet ou partie d'un site où on peut <innerLink ref="discuter">discuter</innerLink> en <innerLink ref="direct">direct</innerLink>.</xml>
+              <txt>Clavardoir, site internet ou partie d'un site où on peut discuter en direct.</txt>
+            </gloss>
+            <example>
+              <xml>
+                <i>Retrouver ses copains sur un <b>chat</b>.</i>
+              </xml>
+              <txt>Retrouver ses copains sur un chat.</txt>
+            </example>
+          </definition>
+        </definitions>
+        <subsection type="alternativeForm">
+          <item>tchat</item>
+          <item>tchate</item>
+        </subsection>
+        <subsection type="semRel">
+          <item type="synonym">causette</item>
+          <item type="synonym">clavardage</item>
+          <item type="synonym">tchatche</item>
+        </subsection>
+        <subsection type="morpho">
+          <item type="derivative">chater</item>
+          <item type="derivative">chateur</item>
+        </subsection>
+        <translations/>
+      </pos>
+      <section type="homophones">
+        <item>chas</item>
+        <item>chah</item>
+        <item>shah</item>
+      </section>
+    </text>
+</article>

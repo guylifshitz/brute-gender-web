@@ -5,6 +5,7 @@ class CreateLevelInstances < ActiveRecord::Migration
       t.references :user
       t.string :words_ordered, limit: 2000
       t.integer :count
+      t.float :correct_completion_percent
     end
   end
 end
