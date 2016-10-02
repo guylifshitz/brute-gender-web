@@ -16,7 +16,14 @@
         <tbody>
           <% @output_words.each do |word_score| %>
             <tr>
-              <td align="left"><%= word_score[:word] %></td>
+
+              <td align="left">
+                <%= word_score[:word]%>
+                <% if word_score[:correct_count]/word_score[:count].to_f == 1 %>
+                  <span class=" glyphicon glyphicon-ok-circle" style='color:green'></span></td>
+                <% else %>
+                  <span class=" glyphicon glyphicon-remove-circle" style='color:red'></span></td>
+                <% end %>
               <td><%= word_score[:gender] %> </td>
               <td><%= word_score[:count] %></td>
               <td><%= (word_score[:correct_count]/word_score[:count].to_f*100).to_i %>%</td>

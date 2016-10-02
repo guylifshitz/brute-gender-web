@@ -1,3 +1,10 @@
+doc = File.open("scripts/GLAWI_FR_workParsed_D2015-12-26_R2016-05-18.xml") { |f| Nokogiri::XML(f) }
+
+
+doc = File.open("chat.xml") { |f| Nokogiri::XML(f) }
+
+
+
 import xml.etree.ElementTree as etree
 tree = etree.parse('chat.xml')
 root=tree.getroot()
@@ -10,8 +17,6 @@ root=tree.getroot()
 root
 
 words = root.findall("article")
-
-
 
 for word in words:
   if (word.find("text").find("pos").attrib["type"] == "nom"):
@@ -31,3 +36,6 @@ for word in words:
 
 for text in words[1].findall("text")[0].find("pos").itertext():
   print(text)
+
+
+

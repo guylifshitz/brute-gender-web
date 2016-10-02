@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'levels#index'
+  root 'level_categories#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -21,7 +21,10 @@ Rails.application.routes.draw do
   resources :word
   resources :word_scores
 
-  resources :levels
+
+  resources :level_categories do
+    resources :levels
+  end
 
   resources :level_instances do
     post :create_wrong_words_level, :on => :collection

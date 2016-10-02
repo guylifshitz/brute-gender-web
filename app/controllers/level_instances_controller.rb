@@ -15,18 +15,22 @@ class LevelInstancesController < ApplicationController
         end
       end
       ap wrong_word_ids
-      @level_instance = LevelInstance.new({:user => current_user, :count => 0, :words_ordered => wrong_word_ids.uniq, :correct_completion_percent => 0})
+      @level_instance = LevelInstance.new({:user => current_user, :complete_count => 0, :correct_completion_percent => 0})
       success = @level_instance.save
       redirect_to level_instance_run_index_path(:level_instance_id => @level_instance.id)
-
   end
 
   # POST /level_instances/create
   def create
-    @level_instance = LevelInstance.new({:level => Level.find(params[:level_id]), :user => current_user, :count => 0, :correct_completion_percent => 0})
-    @level_instance.words_ordered = @level_instance.level.words
+    level = Level.find(params[:level_id])
+
+    @level_instance = LevelInstance.new({:level => level, :user => current_user, :complete_count => 0, :correct_completion_percent => 0})
+
+    level.words.each do |word|
+      WordScore.create({:level_instance => @level_instance, :word => word})
+    end
+
     success = @level_instance.save
     redirect_to level_instance_run_index_path(:level_instance_id => @level_instance.id)
   end
-
 end

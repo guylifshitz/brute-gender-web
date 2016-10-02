@@ -3,32 +3,50 @@ class LevelInstances::RunController < ApplicationController
 
   before_action :authenticate_user!
 
-  steps :start, :show_word, :check_word, :finish
+  steps :show_word, :check_word, :finish
 
   def show
     @level_instance = LevelInstance.find(params[:level_instance_id])
-    ap @level
+
+    @play_word_sound = true
 
     case step
     when :start
       if @level_instance.level
+
         @name = @level_instance.level[:name]
         @description = @level_instance.level[:description]
-      end
-      
-    when :show_word
-      @word_id = @level_instance.words_ordered[@level_instance.count]
-      @word_text = Word.find(@word_id)[:word]
-      @definition = Word.find(@word_id)[:definition_en]
-    when :check_word
-      @word_id = @level_instance.words_ordered[@level_instance.count]
-      @word_text = Word.find(@word_id)[:word]
-      @word_gender = Word.find(@word_id)[:gender]
-      @definition = Word.find(@word_id)[:definition_en]
-      @ws = WordScore.where(:word_id => @word_id, :user => current_user, :level_instance => @level_instance).last
 
-      @correct = @ws[:correct]
+        @word_correct_counts = {}
+
+        @level_instance.word_scores.each do |level_word_score|
+          correct_count = 0
+
+          word_scores_for_word = current_user.word_scores.where(word: level_word_score.word)
+
+          word_scores_for_word.each do |word_word_score|
+            if word_word_score[:correct]
+              correct_count += 1
+            end
+            
+            if word_word_score[:correct] != nil
+              @word_correct_counts[level_word_score.word] = correct_count / word_scores_for_word.count.to_f
+            else
+              @word_correct_counts[level_word_score.word] = "-"
+            end
+          end
+        end
+      end
+
+    when :show_word
+      set_definition @level_instance
+
+    when :check_word
+      set_definition @level_instance
+
+      @correct = @word_score[:correct]
       @f_clicked = false
+      @word_gender = @word_score.word[:gender]
 
       if @correct
         if @word_gender == "f"
@@ -40,13 +58,7 @@ class LevelInstances::RunController < ApplicationController
         end
       end
 
-      # if params[:F]
-      # else
-      #   @f_clicked = false
-      # end
-        
     when :finish
-      ap "show finish"
     end
 
     render_wizard 
@@ -55,45 +67,45 @@ class LevelInstances::RunController < ApplicationController
   def update
     @level_instance = LevelInstance.find(params[:level_instance_id])
 
-    ap "update" 
-    ap params
-
     case step
     when :start
     when :show_word
 
-      @word_id = @level_instance.words_ordered[@level_instance.count]
-      @word = Word.find(@word_id)
+      word_score = @level_instance.word_scores[@level_instance[:complete_count]]
+      word = word_score.word
 
       # Check which button was pressed and if it was correct
-      @correct = true
+      correct = true
 
-      if @word[:gender] == "f"
+      if word[:gender] == "f"
         if params[:F]
-          @correct = true
+          correct = true
         else
-          @correct = false
+          correct = false
         end
       else
         if params[:M]
-          @correct = true
+          correct = true
         else
-          @correct = false
+          correct = false
         end
       end
 
       #  Save the level correct completion score
-      if @correct
-        @level_instance.correct_completion_percent = @level_instance.correct_completion_percent + 1.0/@level_instance.words_ordered.count * 100
-        @level_instance.save!        
+      if correct
+        @level_instance.correct_completion_percent = @level_instance.correct_completion_percent + 1.0/@level_instance.word_scores.count * 100
+        @level_instance.save!
       end
 
       # Make a new word's score
-      WordScore.create({:word =>@word, :user => current_user, :level_instance => @level_instance, :correct => @correct})
-    when :check_word
-      @level_instance.count = @level_instance.count + 1
+      word_score.update_attribute(:correct,  correct)
+      ap "showowrdupdate"
+      ap word_score
 
-      if @level_instance.count < @level_instance.words_ordered.count
+    when :check_word
+      @level_instance.complete_count = @level_instance.complete_count + 1
+
+      if @level_instance.complete_count < @level_instance.word_scores.count
         jump_to(:show_word)
       end
 
@@ -105,8 +117,26 @@ class LevelInstances::RunController < ApplicationController
 
   end
 
-
   def create
   end
 
+private 
+
+  def set_definition level_instance
+    @word_score = level_instance.word_scores[level_instance[:complete_count]]
+
+    word = @word_score.word
+
+    @definition_fr = word[:definition_fr]
+    if @definition_fr == nil
+      @definition_fr = "-"
+    end
+
+    @definition_en = word[:definition_en]
+    if @definition_en == nil
+      @definition_en = "-"
+    else
+      @definition_en = "("+JSON.parse(@definition_en).uniq.join(", ")+")"
+    end
+  end
 end

@@ -1,0 +1,20 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <h1 align="center">Level Categories</h1>
+      </div>
+
+      <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+      <% @categories.each do |category| %>
+        <%= link_to level_category_path(category.id), :class => "btn btn-lg", :title => category[:description] do %>
+            <%= image_tag("complete-100.png", :border => 0, :alt => '', :title => '', :size => "80x80", :class=>"img-responsive") %>
+          <span class="level_title"><%= category[:name] %></span>
+        <% end %>
+        <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

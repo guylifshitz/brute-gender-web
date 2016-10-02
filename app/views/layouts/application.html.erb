@@ -1,7 +1,10 @@
 <!DOCTYPE html>
+
+<script src="http://code.responsivevoice.org/responsivevoice.js"></script>
+
 <html>
 <head>
-  <title>BruteGenderWeb</title>
+  <title>BruteGenre</title>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -17,32 +20,40 @@
  <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 
-<nav class="navbar navbar-dark bg-inverse">
-  <%= link_to "Brute Genre", levels_path, :class=>"navbar-brand" %>
+<nav class="navbar navbar-dark bg-inverse navbar-fixed-top"  role="navigation" >
+  <%= link_to "brute_genre", level_categories_path, :class=>"navbar-brand" %>
   <ul class="nav navbar-nav">
-    <li class="nav-item active">
-     <% if user_signed_in? %>
-        <li class="nav-item">
-       <%= link_to "Levels", levels_path %>
-        </li>
-        <li class="nav-item">
-       <%= link_to "Words", word_scores_path %>
-        </li>
-        <li class="nav-item">
-       <%= link_to "Log out", destroy_session_path(:user), :method => :delete %>
+    <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to "Levels", level_categories_path , :class=>"nav-item-link btn btn-navbar" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Your Words", word_scores_path, :class=>"nav-item-link btn btn-navbar" %>
+      </li>
+    <% end %>
+  </ul>
+
+  <ul class="nav navbar-nav navbar-right">
+    <% if user_signed_in? %>
+      <li class="nav-item">
+       <%= link_to "Log out", destroy_session_path(:user), :class=>"nav-item-link btn btn-navbar", :method => :delete %>
         </li>
      <% else %>
       <li class="nav-item">
-        <%= link_to "Sign up", new_user_registration_path %>
+        <%= link_to "Sign up", new_user_registration_path, :class=>"nav-item-link btn btn-navbar" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Sign in", new_user_session_path %>
+        <%= link_to "Sign in", new_user_session_path, :class=>"nav-item-link btn btn-navbar" %>
       </li>
-   <% end %>
-  </ul>
+     <% end %>
+    </ul>
 </nav>
 
+<div class="brute-content">
+
 <%= yield %>
+
+</div>
 
 </body>
 </html>

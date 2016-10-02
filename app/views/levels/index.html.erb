@@ -17,7 +17,7 @@
       <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
       <% @levels.each do |level| %>
-        <%= link_to level_instances_path(:level_id => level.id), :method => :post, :class => "btn btn-lg", :title => Level.find(level.id)[:description] do %>
+        <%= link_to level_path(level.id), :class => "btn btn-lg", :title => Level.find(level.id)[:description] do %>
           <% if @level_completion[level.id] >= 100 %>
             <%= image_tag("complete-100.png", :border => 0, :alt => '', :title => '', :size => "80x80", :class=>"img-responsive") %>
           <% elsif @level_completion[level.id] > 75 %>

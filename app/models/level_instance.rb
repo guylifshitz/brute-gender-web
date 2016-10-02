@@ -1,7 +1,6 @@
 class LevelInstance < ActiveRecord::Base
-  serialize :words_ordered
+  belongs_to :level
+  belongs_to :user
 
-  belongs_to :level, dependent: :destroy
-  belongs_to :user, dependent: :destroy
-
+  has_many :word_scores
 end

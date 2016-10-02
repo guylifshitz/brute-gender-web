@@ -58,3 +58,4 @@ gem 'wicked'
 
 gem 'capistrano-passenger'
 gem 'nokogiri'
+gem "font-awesome-rails"

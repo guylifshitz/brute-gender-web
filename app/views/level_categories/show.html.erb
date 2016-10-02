@@ -1,0 +1,38 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <h1 align="center">Levels</h1>
+      </div>
+
+      <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+      <%= link_to create_wrong_words_level_level_instances_path, :method => :post, :class => "btn btn-lg", :title => "Words you got wrong." do %>
+        <%= image_tag("answer_wrong.png", :border => 0, :alt => '', :title => '', :size => "80x80", :class=>"img-responsive") %>
+        <span class="level_title"><%= "Hard Words" %></span>
+      <% end %>
+      </div>
+      </div>
+
+      <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+      <% @levels.each do |level| %>
+        <%= link_to level_category_level_path(level.level_category, level), :class => "btn btn-lg", :title => Level.find(level.id)[:description] do %>
+          <% if @level_completion[level.id] >= 100 %>
+            <%= image_tag("complete-100.png", :border => 0, :alt => '', :title => '', :size => "80x80", :class=>"img-responsive") %>
+          <% elsif @level_completion[level.id] > 75 %>
+            <%= image_tag("complete-75.png", :border => 0, :alt => '', :title => '', :size => "80x80", :class=>"img-responsive") %>
+          <% elsif @level_completion[level.id] > 25 %>
+            <%= image_tag("complete-50.png", :border => 0, :alt => '', :title => '', :size => "80x80", :class=>"img-responsive") %>
+          <% elsif @level_completion[level.id] > 0 %>
+            <%= image_tag("complete-25.png", :border => 0, :alt => '', :title => '', :size => "80x80", :class=>"img-responsive") %>
+          <% else %>
+            <%= image_tag("complete-0.png", :border => 0, :alt => '', :title => '', :size => "80x80", :class=>"img-responsive") %>
+          <% end %>
+          <span class="level_title"><%= Level.find(level.id)[:name] %></span>
+        <% end %>
+      <% end %>
+    </div>
+    </div>
+  </div>
+</div>

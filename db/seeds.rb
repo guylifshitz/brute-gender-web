@@ -8,6 +8,5 @@
 
 user = User.create! :email => 'test@test.com', :password => 'password', :password_confirmation => 'password'
 
-load 'helpers/load_words.rb'
-load 'helpers/build_levels.rb'
-
+load 'scripts/load_words.rb'
+load 'scripts/build_levels.rb'

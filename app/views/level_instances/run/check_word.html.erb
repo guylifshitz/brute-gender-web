@@ -1,7 +1,17 @@
 <div class="jumbotron" id="check_word"> 
 <div class="container">
-    <h1 align="center"><%= @word_text %></h1>
-    <p  align="center"><%= @definition %> </p>
+
+      <div align="right">
+      <% if @play_word_sound %>
+        <button class="btn btn-default" type="button"> <span class="glyphicon glyphicon-volume-off fa-1x" /></button>
+      <% else %>
+          <button class="btn btn-default" type="button"> <span class="glyphicon glyphicon-volume-up" /></button>
+      <% end %> 
+      </div>
+
+    <h1 align="center" id="word"><%= @word_score.word[:word] %></h1>
+    <p align="center" class="word-def-fr"><%= @definition_fr %> </p>
+    <p align="center" class="word-def-en"><%= @definition_en %> </p>
 
     <div align="center">
 

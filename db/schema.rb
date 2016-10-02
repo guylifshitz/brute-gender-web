@@ -11,24 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160923025507) do
+ActiveRecord::Schema.define(version: 20161001213251) do
 
-  create_table "level_instances", force: :cascade do |t|
-    t.integer "level_id",                   limit: 4
-    t.integer "user_id",                    limit: 4
-    t.string  "words_ordered",              limit: 2000
-    t.integer "count",                      limit: 4
-    t.integer "correct_completion_percent", limit: 4
-  end
-
-  create_table "levels", force: :cascade do |t|
+  create_table "level_categories", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.string   "description", limit: 255
-    t.string   "words",       limit: 2000
-    t.string   "statistics",  limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
+
+  create_table "level_instances", force: :cascade do |t|
+    t.integer  "level_id",                   limit: 4
+    t.integer  "user_id",                    limit: 4
+    t.integer  "complete_count",             limit: 4
+    t.float    "correct_completion_percent", limit: 24
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
+  add_index "level_instances", ["level_id"], name: "index_level_instances_on_level_id", using: :btree
+  add_index "level_instances", ["user_id"], name: "index_level_instances_on_user_id", using: :btree
+
+  create_table "level_words", force: :cascade do |t|
+    t.integer  "level_id",   limit: 4
+    t.integer  "word_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "level_words", ["level_id"], name: "index_level_words_on_level_id", using: :btree
+  add_index "level_words", ["word_id"], name: "index_level_words_on_word_id", using: :btree
+
+  create_table "levels", force: :cascade do |t|
+    t.string   "name",              limit: 255
+    t.string   "description",       limit: 255
+    t.string   "statistics",        limit: 255
+    t.integer  "level_category_id", limit: 4
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "levels", ["level_category_id"], name: "index_levels_on_level_category_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -48,14 +71,33 @@ ActiveRecord::Schema.define(version: 20160923025507) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "word_categories", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "description", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "word_categories_words", force: :cascade do |t|
+    t.integer  "word_id",          limit: 4
+    t.integer  "word_category_id", limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "word_categories_words", ["word_category_id"], name: "index_word_categories_words_on_word_category_id", using: :btree
+  add_index "word_categories_words", ["word_id"], name: "index_word_categories_words_on_word_id", using: :btree
+
   create_table "word_scores", force: :cascade do |t|
     t.integer  "level_instance_id", limit: 4
-    t.integer  "user_id",           limit: 4
     t.integer  "word_id",           limit: 4
     t.boolean  "correct"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end
+
+  add_index "word_scores", ["level_instance_id"], name: "index_word_scores_on_level_instance_id", using: :btree
+  add_index "word_scores", ["word_id"], name: "index_word_scores_on_word_id", using: :btree
 
   create_table "words", force: :cascade do |t|
     t.string   "word",          limit: 255
@@ -67,4 +109,13 @@ ActiveRecord::Schema.define(version: 20160923025507) do
     t.datetime "updated_at",                null: false
   end
 
+  add_foreign_key "level_instances", "levels"
+  add_foreign_key "level_instances", "users"
+  add_foreign_key "level_words", "levels"
+  add_foreign_key "level_words", "words"
+  add_foreign_key "levels", "level_categories"
+  add_foreign_key "word_categories_words", "word_categories"
+  add_foreign_key "word_categories_words", "words"
+  add_foreign_key "word_scores", "level_instances"
+  add_foreign_key "word_scores", "words"
 end
