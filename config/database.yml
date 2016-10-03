@@ -1,21 +1,37 @@
-default: &default
-  adapter: mysql2
-  encoding: utf8
-  username: <%= ENV['MYSQL_USERNAME'] %>
-  password: <%= ENV['MYSQL_PASSWORD'] %>
-  host: 127.0.0.1
-  port: 3306
+# default: &default
+#   adapter: mysql2
+#   encoding: utf8
+#   username: <%= ENV['MYSQL_USERNAME'] %>
+#   password: <%= ENV['MYSQL_PASSWORD'] %>
+#   host: 127.0.0.1
+#   port: 3306
 
-development:
-  <<: *default
-  database: brute_gender_development
+# development:
+#   <<: *default
+#   database: brute_gender_development
 
-test:
-  <<: *default
-  database: brute_gender_test
+# test:
+#   <<: *default
+#   database: brute_gender_test
 
-production:
-  <<: *default
+# production:
+#   <<: *default
   
 
-  database: brute_gender_production
+#   database: brute_gender_production
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: brute_gender_development
+  pool: 5
+  username: <%= ENV['POSTGRESQL_USERNAME'] %>
+  password: <%= ENV['POSTGRESQL_PASSWORD'] %>
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: brute_gender_test
+  pool: 5
+  username: <%= ENV['POSTGRESQL_USERNAME'] %>
+  password: <%= ENV['POSTGRESQL_PASSWORD'] %>
