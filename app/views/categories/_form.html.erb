@@ -1,0 +1,99 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+      <%= form_for @category, :url => { :action => "find_words" }, method: "push" do |f| %>
+        <div>Name: <%= f.text_field :name %></div>
+        <div>Link Sources:</div><div><%= f.text_area(:word_sources, size: "24x6") %></div>
+        <%= f.hidden_field :id, :value => @category[:id]%>
+        <div><%= f.submit "Scan Sources",  :class => "btn btn-primary"%></div>
+      <% end %>
+
+        <br />
+    <br />
+
+    <% if @category[:word_sources] != nil and @category[:word_sources] != "" %>
+      <%= form_for @category, :url => { :action => "update_range" }, method: "push" do |f| %>
+        <%= f.hidden_field :id, :value => @category[:id]%>
+        <%= f.label :word_frequency_maximum %>  
+        <%= f.text_field(:word_frequency_maximum) %>
+        <br />
+        <%= f.label :word_score_maximum %>  
+        <%= f.text_field(:word_score_maximum) %>
+        <div><%= f.submit "Update Ranges",  :class => "btn btn-primary"%></div>
+      <% end %>
+      </div>
+    </div>
+  
+    <% if @category.id %>
+      <%= link_to "Create Levels", category_create_levels_path(@category), :method => :post, :class => "btn btn-primary" %>
+    <% end %>
+
+  <div class="row">
+    <div class="col-xs-12"'>
+      <div class="edit_category_words" id="selected_words">
+        <h3>Selected Words</h3>
+        <table class="table">
+          <thead>
+            <tr>
+            <th width="40%">Score</th>
+            <th width="15%"><%= sortable("category_ranking", "Rank Score") %></th>
+            <th width="15%"><%= sortable("url_frequency", "Source Frequency") %></th>
+            <th width="15%"><%= sortable("frequency", "General Frequency") %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @selected_words.each do |cat_word| %>
+              <tr> 
+              <td> <%= link_to category_word_disable_path(cat_word), :method => :post do %>
+                      <span class="glyphicon glyphicon-remove" style='color:grey' />
+                  <% end %> <%= link_to cat_word.word[:word], word_path(cat_word.word) %> </td>
+              <td> <%= number_with_delimiter(cat_word[:category_ranking].to_i) %> </td>
+              <td> <%= number_with_delimiter(cat_word[:url_frequency]) %> </td>
+              <td> <%= number_with_delimiter(cat_word.word[:frequency]) %> </td>
+              <td>  
+              </td>
+             </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12"'>
+      <div class="edit_category_words" id="removed_words">
+        <h3>Removed Words</h3>
+        <table class="table">
+          <thead>
+            <tr>
+            <th width="40%">Score</th>
+            <th width="15%"><%= sortable("category_ranking", "Rank Score") %></th>
+            <th width="15%"><%= sortable("url_frequency", "Source Frequency") %></th>
+            <th width="15%"><%= sortable("frequency", "General Frequency") %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @removed_words.each do |cat_word| %>
+              <tr> 
+              <td> <%= link_to category_word_enable_path(cat_word), :method => :post do %>
+                      <span class="glyphicon glyphicon-plus" style='color:grey' />
+                  <% end %> <%= link_to cat_word.word[:word], word_path(cat_word.word) %> </td>
+              <td> <%= number_with_delimiter(cat_word[:category_ranking].to_i) %> </td>
+              <td> <%= number_with_delimiter(cat_word[:url_frequency]) %> </td>
+              <td> <%= number_with_delimiter(cat_word.word[:frequency]) %> </td>
+              <td>  
+              </td>
+             </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <% end %>
+
+  </div>
+</div>

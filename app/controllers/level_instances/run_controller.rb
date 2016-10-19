@@ -8,7 +8,7 @@ class LevelInstances::RunController < ApplicationController
   def show
     @level_instance = LevelInstance.find(params[:level_instance_id])
 
-    @play_word_sound = true
+    @play_word_sound = current_user[:sound]
 
     case step
     when :start
@@ -123,6 +123,7 @@ class LevelInstances::RunController < ApplicationController
 private 
 
   def set_definition level_instance
+    ap level_instance.word_scores
     @word_score = level_instance.word_scores[level_instance[:complete_count]]
 
     word = @word_score.word
@@ -136,7 +137,7 @@ private
     if @definition_en == nil
       @definition_en = "-"
     else
-      @definition_en = "("+JSON.parse(@definition_en).uniq.join(", ")+")"
+      @definition_en = "("+@definition_en.uniq.join(", ")+")"
     end
   end
 end

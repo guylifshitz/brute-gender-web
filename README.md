@@ -6,17 +6,17 @@ The website is not hosted yet.
 
 
 TODO:
++ Add option to add words to the practice list from the level word list.
++ Add plurals
 + Statistics at end of level
-+ Make level from words you got wrong 
-+ Add definitions
-+ Show level completness on level screen
-+ Make levels based on category
 + Filters on word list (words you got right, wrong, seen often, etc...)
-+ Level descriptions should be based on what they are
-+ Randomize the level instances' word order
-+ 
++ ??? Randomize the level instances' word order ???
 
 
+CATEGORY TODO:
++ Make level from the scanned words
++ Consider plurals the same as singular in count
++ Don't count words with Capital letters at start which don't have a period before (filters out proper names)
 
 
 Models:

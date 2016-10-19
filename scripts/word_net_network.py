@@ -124,7 +124,7 @@ def get_downwards(word_id, output_words = {}):
 
   if references != []:
     for ref_id in references:
-      recurs_result = print_downwards(ref_id, output_words)
+      recurs_result = get_downwards(ref_id, output_words)
       output_words.update(recurs_result)
 
   else:

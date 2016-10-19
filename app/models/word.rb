@@ -6,6 +6,6 @@ class Word < ActiveRecord::Base
 
   has_many :word_scores
 
-  has_and_belongs_to_many :word_categories
+  has_many :category_words
 
 end

@@ -1,10 +1,16 @@
 # load 'scripts/load_words.rb'
 
+# TODO: 
+#   consider using the ID numbers in the lexical file and consider cases where more than one word for same spelling. 
+#   (Maybe it will help with frequency.)
+#       OR
+#   maybe change this to wikitionary and just use the frequency values from the lexique-dicollecte file
+
 require 'csv'    
 
 ap "Load file..."
-parsed_file = CSV.read("#{Rails.root}/scripts/lexique-dicollecte-fr-v5.6-small.csv", { :col_sep => "\t", :headers => :true });
-# parsed_file = CSV.read("#{Rails.root}/scripts/lexique-dicollecte-fr-v5.6.csv", { :col_sep => "\t", :headers => :true });
+# parsed_file = CSV.read("#{Rails.root}/scripts/lexique-dicollecte-fr-v5.6-small.csv", { :col_sep => "\t", :headers => :true });
+parsed_file = CSV.read("#{Rails.root}/scripts/lexique-dicollecte-fr-v5.6.csv", { :col_sep => "\t", :headers => :true });
 
 count = 0
 
@@ -55,6 +61,7 @@ end
 
 ap "Add plurals to existing words..."
 words.each do |word|
+
   if word[1].count == 1
     google1grams_freq = word[1][0]["Google 1-grams"]
     wikipedia_freq = word[1][0]["Wikipédia"]
@@ -67,11 +74,11 @@ words.each do |word|
     total_freq = -1
   end
 
-  lemme = word[1][0]["Lemme"]
-
   gender = nil
 
   word[1].each do |w|
+    lemme = w["Lemme"]
+  
     case w["Étiquettes"]
     when "nom mas pl"
       gender = "m"
@@ -81,19 +88,16 @@ words.each do |word|
   end
 
   if gender != nil
-    ap word
-    ap Word.where({"word"=>lemme, "gender" => gender})
-
     if Word.where({"word"=>lemme, "gender" => gender}).count == 0
       ap "No words in the DB with the lemme. This might indicate a mistake. We will skip this word."
     elsif Word.where({"word"=>lemme, "gender" => gender}).count > 1
       ap "Too many words in the DB with the lemme. This might indicate a mistake. We will skip this word."
     else
-      word = Word.where({"word"=>lemme, "gender" => gender}).first
-      if word[:frequency] == -1
-        word.update_attributes({:word_plural => word[0], :frequency => total_freq})
+      w = Word.where({"word"=>lemme, "gender" => gender}).first
+      if w[:frequency] == -1
+        w.update_attributes({"word_plural" => word[0], "frequency" => total_freq})
       else
-        word.update_attributes({:word_plural => word[0]})
+        w.update_attribute("word_plural", word[0])
       end
     end
   end

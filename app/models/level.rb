@@ -1,6 +1,6 @@
 class Level < ActiveRecord::Base
 
-  belongs_to :level_category
+  belongs_to :category
 
   has_many  :level_words
   has_many  :words, through: :level_words

@@ -61,3 +61,6 @@ gem 'nokogiri'
 gem "font-awesome-rails"
 gem "pg"
 
+gem 'sinatra'
+gem "sidekiq"
+gem 'redis-rails'

@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
   
+
   devise_for :users
+  
+  require 'sidekiq/web'
+  mount Sidekiq::Web => 'admin/sidekiq'
+
+  
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'level_categories#index'
+  root 'categories#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -21,13 +27,23 @@ Rails.application.routes.draw do
   resources :word
   resources :word_scores
 
-
-  resources :level_categories do
+  resources :categories do
+    post 'find_words', :on => :collection
+    post 'update_range', :on => :collection
+    post 'update_range', :on => :collection
+    post 'create_levels'
+    post :create_wrong_words_level
     resources :levels
   end
 
+  resources :category_words do
+    post 'disable'
+    post 'enable'
+  end
+
+  resources :user_level_categories, controller: 'level_categories', type: 'UserCategory' 
+
   resources :level_instances do
-    post :create_wrong_words_level, :on => :collection
     resources :run, controller: 'level_instances/run'
   end
 

@@ -21,11 +21,11 @@
 <% end %>
 
 <nav class="navbar navbar-dark bg-inverse navbar-fixed-top"  role="navigation" >
-  <%= link_to "brute_genre", level_categories_path, :class=>"navbar-brand" %>
+  <%= link_to "brute_genre", categories_path, :class=>"navbar-brand" %>
   <ul class="nav navbar-nav">
     <% if user_signed_in? %>
       <li class="nav-item">
-        <%= link_to "Levels", level_categories_path , :class=>"nav-item-link btn btn-navbar" %>
+        <%= link_to "Levels", categories_path , :class=>"nav-item-link btn btn-navbar" %>
       </li>
       <li class="nav-item">
         <%= link_to "Your Words", word_scores_path, :class=>"nav-item-link btn btn-navbar" %>
