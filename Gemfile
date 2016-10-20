@@ -66,3 +66,4 @@ gem "pg"
 gem 'sinatra'
 gem "sidekiq"
 gem 'redis-rails'
+gem "thread_safe", '~> 0.3.4'

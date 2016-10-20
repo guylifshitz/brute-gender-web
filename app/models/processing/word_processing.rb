@@ -1,3 +1,4 @@
+#      word_counts = word_counts = Processing::WordProcessing.get_word_frequencies_efficient
 
 # Processing::WordProcessing.load_wikitionnary_words
 # Processing::WordProcessing.add_frequencies
