@@ -7,7 +7,7 @@ module Processing
   class WordProcessing
 
     def self.load_wikitionnary_words
-      word_counts = get_word_frequencies
+      word_counts = get_word_frequencies_efficient
 
       CategoryWord.destroy_all
       WordScore.destroy_all
@@ -25,16 +25,13 @@ module Processing
 
 
     def self.get_word_frequencies
-      ap "Load file..."
-      # parsed_file = CSV.read("#{Rails.root}/scripts/lexique-dicollecte-fr-v5.6-small.csv", { :col_sep => "\t", :headers => :true });
-      parsed_file = CSV.read("#{Rails.root}/scripts/lexique-dicollecte-fr-v5.6.csv", { :col_sep => "\t", :headers => :true });
 
       debug_count = 0
       words = {}
 
       ap "Load file words..."
 
-      parsed_file.each do |row|
+      CSV.foreach("#{Rails.root}/scripts/lexique-dicollecte-fr-v5.6.csv", { :col_sep => "\t", :headers => :true }) do |row|
         if debug_count % 10000 == 0
           ap debug_count
         end
@@ -59,19 +56,43 @@ module Processing
           total_freq = word[1][0]["Total occurrences"]
 
           if word[1][0]["Étiquettes"].include? "nom "
-            # if Word.where({:word => word[0]}).count > 1
-            #   raise "Word cound shouldn't be more than 1 (#{word[0]}"
-            # end
-
-            # w = Word.where({:word => word[0]}).first
-            # if w
-            #   w.update_attribute(:frequency, total_freq)
-            # end
             word_counts[word[0]] = total_freq
           end
         end
       end;0
       word_counts
     end
+
+
+    def self.get_word_frequencies_efficient
+
+      debug_count = 0
+      word_counts = {}
+
+      ap "Load file words..."
+
+      # TODO: find a better way to get word counts
+      CSV.foreach("#{Rails.root}/scripts/lexique-dicollecte-fr-v5.6.csv", { :col_sep => "\t", :headers => :true }) do |row|
+        if debug_count % 10000 == 0
+          ap debug_count
+        end
+        debug_count = debug_count + 1
+        flexion = row["Flexion"]
+        total_freq = row["Total occurrences"].to_i
+
+        if flexion == flexion.downcase
+          if row["Étiquettes"].include? "nom "
+            if word_counts[flexion]
+              word_counts[flexion] = [total_freq, word_counts[flexion]].max
+            else
+              word_counts[flexion] = total_freq
+            end
+          end
+        end
+      end;0
+
+      word_counts
+    end
+
   end
 end
