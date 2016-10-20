@@ -72,7 +72,7 @@ class NodeHandlerImportWords < Struct.new(:node, :word_counts)
     rescue => exception
       Rails.logger.debug "Word Creation Faild: #{word_text}"
       Rails.logger.debug exception
-      Rails.logger.debug e.backtrace.join("\n")
+      Rails.logger.debug exception.backtrace.join("\n")
     end
   end
 end
