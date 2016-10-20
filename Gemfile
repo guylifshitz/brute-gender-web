@@ -57,6 +57,8 @@ gem 'awesome_print'
 gem 'wicked'
 
 gem 'capistrano-passenger'
+gem 'capistrano-rails-console', require: false
+
 gem 'nokogiri'
 gem "font-awesome-rails"
 gem "pg"

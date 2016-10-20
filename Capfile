@@ -7,6 +7,10 @@ require "capistrano/deploy"
 # Passenger
 require 'capistrano/passenger'
 
+
+# Console
+require 'capistrano/rails/console'
+
 # Include tasks from other gems included in your Gemfile
 #
 # For documentation on these, see for example:
