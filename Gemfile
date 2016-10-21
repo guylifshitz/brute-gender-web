@@ -58,12 +58,13 @@ gem 'wicked'
 
 gem 'capistrano-passenger'
 gem 'capistrano-rails-console', require: false
+gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
 
 gem 'nokogiri'
 gem "font-awesome-rails"
 gem "pg"
 
 gem 'sinatra'
-gem "sidekiq"
+gem "sidekiq", '~> 3.4'
 gem 'redis-rails'
 gem "thread_safe", '~> 0.3.4'

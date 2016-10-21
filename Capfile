@@ -7,6 +7,10 @@ require "capistrano/deploy"
 # Passenger
 require 'capistrano/passenger'
 
+# Sidekiq
+require 'capistrano/sidekiq'
+require 'capistrano/sidekiq/monit' 
+
 
 # Console
 require 'capistrano/rails/console'
