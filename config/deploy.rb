@@ -53,4 +53,3 @@ set :bundle_flags, '--system --quiet'
 
 sidekiq_cmd_pre = 'cd #{current_path} && ( PATH=/home/guy/.rvm/bin:$PATH RAILS_ENV=production ~/.rvm/bin/rvm default do'
 set :sidekiq_cmd, -> { "#{sidekiq_cmd_pre} bundle exec sidekiq)" }
-set :sidekiqctl_cmd, -> { "#{sidekiq_cmd_pre} bundle exec sidekiqctl" }
