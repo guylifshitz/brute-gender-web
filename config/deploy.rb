@@ -52,12 +52,12 @@ set :bundle_dir, ''
 set :bundle_flags, '--system --quiet'
 
 # SIDEKIQ
-set :sidekiq_pid, File.join(current_path, 'tmp', 'sidekiq.pid')
-set :sidekiq_env, fetch(:rack_env, fetch(:rails_env, "production"))
+# set :sidekiq_pid, File.join(current_path, 'tmp', 'sidekiq.pid')
+# set :sidekiq_env, fetch(:rack_env, fetch(:rails_env, "production"))
 set :pty,  false
 
-sidekiq_cmd_pre = 'cd #{current_path} && ( PATH=/home/guy/.rvm/bin:$PATH RAILS_ENV=production ~/.rvm/bin/rvm default do'
-set :sidekiq_cmd, -> { "#{sidekiq_cmd_pre} bundle exec sidekiq)" }
+# sidekiq_cmd_pre = 'cd #{current_path} && ( PATH=/home/guy/.rvm/bin:$PATH RAILS_ENV=production ~/.rvm/bin/rvm default do'
+# set :sidekiq_cmd, -> { "#{sidekiq_cmd_pre} bundle exec sidekiq)" }
 
 
 namespace :sidekiq do
