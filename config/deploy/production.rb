@@ -9,6 +9,7 @@
 
 server '45.33.80.201', user: 'guy', roles: %w{app db web}
 
+set :sidekiq_pid, File.join(current_path, 'tmp', 'sidekiq.pid')
 
 # role-based syntax
 # ==================
