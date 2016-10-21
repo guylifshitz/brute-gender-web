@@ -44,7 +44,6 @@ set :keep_releases, 5
 # RVM
 set :rvm_ruby_string, :local              # use the same ruby as used locally for deployment
 set :rvm_autolibs_flag, "read-only"       # more info: rvm help autolibs
-set :rvm_ruby_version, 'ruby-2.3.0@brute-gender'
 
 # before 'deploy:setup', 'rvm:install_rvm'  # install/update RVM
 # before 'deploy:setup', 'rvm:install_ruby' # install Ruby and create gemset, OR:
