@@ -41,6 +41,7 @@ set :scm, :git
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
+
 # RVM
 set :rvm_ruby_string, :local              # use the same ruby as used locally for deployment
 set :rvm_autolibs_flag, "read-only"       # more info: rvm help autolibs
@@ -50,6 +51,10 @@ set :rvm_autolibs_flag, "read-only"       # more info: rvm help autolibs
 set :bundle_dir, ''
 set :bundle_flags, '--system --quiet'
 
+# SIDEKIQ
+set :sidekiq_pid, File.join(current_path, 'tmp', 'sidekiq.pid')
+set :sidekiq_env, fetch(:rack_env, fetch(:rails_env, "production"))
+set :pty,  false
 
-sidekiq_cmd_pre = 'cd #{current_path} && ( PATH=/home/guy/.rvm/bin:$PATH RAILS_ENV=production ~/.rvm/bin/rvm default do'
+sidekiq_cmd_pre = '(PATH=/home/guy/.rvm/bin:$PATH RAILS_ENV=production ~/.rvm/bin/rvm default do'
 set :sidekiq_cmd, -> { "#{sidekiq_cmd_pre} bundle exec sidekiq)" }
