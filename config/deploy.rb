@@ -1,3 +1,5 @@
+require "rvm/capistrano"
+
 # config valid only for current version of Capistrano
 lock '3.6.1'
 
@@ -40,3 +42,11 @@ set :scm, :git
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
+# RVM
+set :rvm_ruby_string, :local              # use the same ruby as used locally for deployment
+set :rvm_autolibs_flag, "read-only"       # more info: rvm help autolibs
+
+before 'deploy:setup', 'rvm:install_rvm'  # install/update RVM
+before 'deploy:setup', 'rvm:install_ruby' # install Ruby and create gemset, OR:
+set :bundle_dir, ''
+set :bundle_flags, '--system --quiet'

@@ -59,6 +59,7 @@ gem 'wicked'
 gem 'capistrano-passenger'
 gem 'capistrano-rails-console', require: false
 gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
+gem 'rvm-capistrano'
 
 gem 'nokogiri'
 gem "font-awesome-rails"
