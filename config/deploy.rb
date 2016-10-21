@@ -49,3 +49,8 @@ set :rvm_autolibs_flag, "read-only"       # more info: rvm help autolibs
 # before 'deploy:setup', 'rvm:install_ruby' # install Ruby and create gemset, OR:
 set :bundle_dir, ''
 set :bundle_flags, '--system --quiet'
+
+
+sidekiq_cmd_pre = 'cd #{current_path} && ( PATH=/home/guy/.rvm/bin:$PATH RAILS_ENV=production ~/.rvm/bin/rvm default do'
+set :sidekiq_cmd, -> { "#{sidekiq_cmd_pre} bundle exec sidekiq)" }
+set :sidekiqctl_cmd, -> { "#{sidekiq_cmd_pre} bundle exec sidekiqctl" }
