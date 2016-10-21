@@ -47,8 +47,6 @@ group :development do
   gem 'spring'
 end
 
-
-
 gem 'devise'
 
 gem 'bootstrap-sass', '~> 3.2.0'
