@@ -9,7 +9,7 @@ require 'capistrano/passenger'
 
 # Sidekiq
 require 'capistrano/sidekiq'
-require 'capistrano/sidekiq/monit' 
+# require 'capistrano/sidekiq/monit' 
 
 
 # Console
