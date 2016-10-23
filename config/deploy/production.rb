@@ -11,7 +11,7 @@ server '45.33.80.201', user: 'guy', roles: %w{app db web}
 
 
 set :rvm_type, :user 
-set :rvm_ruby_version, 'ruby-2.3.0@brute-gender-production'
+set :rvm_ruby_version, 'ruby-2.3.0@brute-gender'
 
 
 # role-based syntax

@@ -48,8 +48,6 @@ set :rvm_autolibs_flag, "read-only"       # more info: rvm help autolibs
 
 # before 'deploy:setup', 'rvm:install_rvm'  # install/update RVM
 # before 'deploy:setup', 'rvm:install_ruby' # install Ruby and create gemset, OR:
-set :bundle_dir, ''
-set :bundle_flags, '--system --quiet'
 
 # SIDEKIQ
 # set :sidekiq_pid, File.join(current_path, 'tmp', 'sidekiq.pid')
