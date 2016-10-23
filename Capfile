@@ -8,7 +8,7 @@ require "capistrano/deploy"
 require 'capistrano/passenger'
 
 # Sidekiq
-require 'capistrano/sidekiq'
+# require 'capistrano/sidekiq'
 # require 'capistrano/sidekiq/monit' 
 
 
