@@ -54,14 +54,18 @@ set :bundle_flags, '--system --quiet'
 # SIDEKIQ
 # set :sidekiq_pid, File.join(current_path, 'tmp', 'sidekiq.pid')
 # set :sidekiq_env, fetch(:rack_env, fetch(:rails_env, "production"))
-set :pty,  false
+# set :pty,  false
 
 # sidekiq_cmd_pre = 'cd #{current_path} && ( PATH=/home/guy/.rvm/bin:$PATH RAILS_ENV=production ~/.rvm/bin/rvm default do'
 # set :sidekiq_cmd, -> { "#{sidekiq_cmd_pre} bundle exec sidekiq)" }
 
-namespace :sidekiq do
-  task :start do
-     execute "/home/guy/.rvm/gems/ruby-2.3.0/bin/bundle exec sidekiq --index 0 --pidfile /home/guy/brute-gender-web/shared/tmp/pids/sidekiq.pid --environment production"
-  end
-end
+# namespace :sidekiq do
+#   task :guy do
+#     on roles(:app) do
+#         execute "cd #{current_path} && (/home/guy/.rvm/gems/ruby-2.3.0/bin/bundle exec sidekiq)"
+#        # execute "/home/guy/.rvm/gems/ruby-2.3.0/bin/bundle exec sidekiq --index 0 --pidfile /home/guy/brute-gender-web/shared/tmp/pids/sidekiq.pid --environment production"
+#        # execute "/home/guy/.rvm/gems/ruby-2.3.0/bin/bundle exec sidekiq --index 0 --pidfile /home/guy/brute-gender-web/shared/tmp/pids/sidekiq.pid --environment production"
+#     end
+#   end
+# end
 
