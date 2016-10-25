@@ -1,12 +1,40 @@
-$("#word-text").html("<%= @word %>");
-$("#word-def-fr").html("<%= @definition_fr %>");
-$("#word-def-en").html("<%= @definition_en %>");
-// $("#word-mute").hide();
+$('#masculine-select').removeClass('btn-primary');
 
-<% if @speak %>
-setTimeout(function(){ 
-  responsiveVoice.speak("<%= @word %>", "French Female");
-}, 200);
+<% if @correct %>
+  $('#masculine-select').addClass('btn-success');
+  $('#masculine-select-glyph').addClass('glyphicon glyphicon-ok');
+<% else %>
+  $('#masculine-select').addClass('btn-danger');
+  $('#masculine-select-glyph').addClass('glyphicon glyphicon-remove');
 <% end %>
+$('#masculine-select').addClass('disabled');
 
+$('#feminine-select').addClass('disabled');
+
+setTimeout(function(){ 
+  <% if @level_instance.word_scores.count <= @level_instance[:complete_count] %> 
+    window.location.replace("<%= level_instance_finished_path(@level_instance) %>");
+  <% else %>
+    $("#word-text").html("<%= @word %>");
+    $("#word-def-fr").html("<%= @definition_fr %>");
+    $("#word-def-en").html("<%= @definition_en %>");
+    $('#masculine-select').removeClass('disabled');
+    $('#masculine-select').removeClass('btn-danger');
+    $('#masculine-select').removeClass('btn-success');
+    $('#masculine-select').addClass('btn-primary');
+
+    $('#masculine-select-glyph').removeClass('glyphicon glyphicon-ok');
+    $('#masculine-select-glyph').removeClass('glyphicon glyphicon-remove');
+
+    $('#feminine-select').removeClass('disabled');
+
+    <% if @speak %>
+    setTimeout(function(){ 
+      responsiveVoice.speak("<%= @word %>", "French Female");
+    }, 200);
+    <% end %>
+  <% end %>
+}, <%= @wait_time %> );
+
+// $("#word-mute").hide();
 

@@ -22,6 +22,10 @@ module Processing
           ).process
         end
       end
+
+    Processing::BuildLevel.build_all_levels
+
+
     end
 
 

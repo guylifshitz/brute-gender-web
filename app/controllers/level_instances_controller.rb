@@ -1,3 +1,4 @@
+
 class LevelInstancesController < ApplicationController
   respond_to :html, :js
 
@@ -27,59 +28,32 @@ class LevelInstancesController < ApplicationController
     # redirect_to level_instance_run_index_path(:level_instance_id => @level_instance.id)
   end
 
-  def update
-    level_instance = LevelInstance.find(params[:id])
-
-    level_instance.update_attribute(:complete_count,  level_instance[:complete_count] + 1)
-
-    if level_instance.complete_count < level_instance.word_scores.count
-      # jump_to(:show_word)
-    end
-
-    redirect_to action: "show", id: level_instance
-  end
-
   def show
-    ap params
     @level_instance = LevelInstance.find(params[:id])
-
     @speak = UserConfiguration.where({:user => current_user}).first[:speak]
-
     set_definition @level_instance
   end
 
-  def select_masculine
-    level_instance = LevelInstance.find(params[:level_instance_id])
-    level_instance.update_attribute(:complete_count,  level_instance[:complete_count] + 1)
-    set_definition level_instance
-    @speak = UserConfiguration.where({:user => current_user}).first[:speak]
+  def finished
+    @level_instance = LevelInstance.find(params[:level_instance_id])
+  end
 
-    respond_to do |format|
-      format.js
-    end
+  def select_masculine
+    check_word params[:level_instance_id], "m"
   end
 
   def select_feminine
-    level_instance = LevelInstance.find(params[:level_instance_id])
-    level_instance.update_attribute(:complete_count,  level_instance[:complete_count] + 1)
-    set_definition level_instance
-    @speak = UserConfiguration.where({:user => current_user}).first[:speak]
-
-    respond_to do |format|
-      format.js
-    end
-
+    check_word params[:level_instance_id], "f"
   end
   
 private 
 
   def set_definition level_instance
-    ap level_instance.word_scores
     @word_score = level_instance.word_scores[level_instance[:complete_count]]
 
     w = @word_score.word
     @word = w[:word]
-    
+
     @definition_fr = w[:definition_fr]
     if @definition_fr == nil
       @definition_fr = "-"
@@ -92,5 +66,33 @@ private
       @definition_en = "("+@definition_en.uniq.join(", ")+")"
     end
   end
+
+  def check_word level_instance_id, gender
+    ap level_instance_id
+    @level_instance = LevelInstance.find(level_instance_id)
+
+    word_score = @level_instance.word_scores[@level_instance[:complete_count]]
+    @correct = false
+    @wait_time = 1500
+    if word_score.word[:gender] == gender
+      @correct = true
+      @wait_time = 300
+    end
+    word_score.update_attribute(:correct,  @correct)
+
+    @level_instance.update_attribute(:complete_count,  @level_instance[:complete_count] + 1)
+    
+    if @level_instance[:complete_count] >= @level_instance.word_scores.count
+       #  DO SOMETHING
+    else
+      set_definition @level_instance
+    end
+
+    @speak = UserConfiguration.where({:user => current_user}).first[:speak]
+
+    respond_to do |format|
+      format.js
+    end
+end
 
 end

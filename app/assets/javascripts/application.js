@@ -58,11 +58,11 @@ document.onkeydown = function (e) {
 
   if (e.keyCode == 37)
   {
-    $("#feminin").click();
+    $("#masculine-select").click();
   }
   if (e.keyCode == 39)
   {
-    $("#masculin").click();
+    $("#feminine-select").click();
   }
   if (e.keyCode == 32 )
   {

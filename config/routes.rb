@@ -46,6 +46,8 @@ Rails.application.routes.draw do
   resources :level_instances do
     resources :run, controller: 'level_instances/run'
 
+    get 'finished', to: 'level_instances#finished'
+
     post 'select_masculine', to: 'level_instances#select_masculine'
     post 'select_feminine', to: 'level_instances#select_feminine'
 
