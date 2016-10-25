@@ -1,9 +1,4 @@
-<% if @correct %>
-<div class="jumbotron" id="check-word-right">
-<% else %>
-<div class="jumbotron" id="check-word-wrong">
-<% end %>
-
+<div class="jumbotron" id="show_word"> 
   <div class="container">
       <div align="right">
 
@@ -24,7 +19,7 @@
         <% else %>
         <div id="enable-speak">
         <% end %>
-
+        
           <%= link_to enable_speak_user_user_configuration_path(current_user.user_configuration), method: :post, class: "btn btn-default", remote: true do %>
             <span class="glyphicon glyphicon-volume-off fa-1x" />
           <% end %>
@@ -39,33 +34,12 @@
     <p align="center" class="word-def-fr"><%= @definition_fr %> </p>
     <p align="center" class="word-def-en"><%= @definition_en %> </p>
 
-    <div align="center">
-
-    <% if @f_clicked %>
-      <% if @correct %>
-        <button class="btn btn-lg btn-success" type="button"> F <span class="glyphicon glyphicon-ok" /></button>
-      <% else %>
-        <button class="btn btn-lg btn-danger" type="button"> F <span class="glyphicon glyphicon-remove" /></button>
-      <% end %>
-      <button class="btn btn-lg" type="button">M</button>
-    <% else %>
-      <button class="btn btn-lg" type="button">F</button>
-      <% if @correct %>
-        <button class="btn btn-lg btn-success" type="button">M<span class="glyphicon glyphicon-ok" /></button>
-      <% else %>
-        <button class="btn btn-lg btn-danger" type="button">M<span class="glyphicon glyphicon-remove" /></button>
-      <% end %>
-    <% end %>
-    </div>
-
-    <%= form_for @level_instance, url: wizard_path, method: :put do |f| %>
       <div class="row">
         <div class="col-sm-12 text-center"'>
-          <input type="submit" value="Next" id="next" class="btn btn-primary btn-lg hidden">
+          <%= link_to "f", level_instance_select_feminine_path(@level_instance), method: :post, class: "btn btn-default", remote: true %>
+          <%= link_to "m", level_instance_select_masculine_path(@level_instance), method: :post, class: "btn btn-default"%>
       </div>
     </div>
-    <% end %>
-  </div>
 </div>
 
 

@@ -2,13 +2,15 @@ class LevelInstances::RunController < ApplicationController
   include Wicked::Wizard
 
   before_action :authenticate_user!
+  respond_to :html, :js
 
   steps :show_word, :check_word, :finish
 
   def show
     @level_instance = LevelInstance.find(params[:level_instance_id])
 
-    @play_word_sound = current_user[:sound]
+    @speak = UserConfiguration.where({:user => current_user}).first[:speak]
+    ap @speak
 
     case step
     when :start

@@ -8,6 +8,7 @@ class WordController < ApplicationController
     word = Word.find(params[:id]);
     @word_text = word["word"]
 
+    @gender = word[:gender]
     @definition_fr = word[:definition_fr]
     if @definition_fr == nil
       @definition_fr = "-"

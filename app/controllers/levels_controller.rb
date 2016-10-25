@@ -21,7 +21,6 @@ class LevelsController < ApplicationController
   def show
     @level = Level.find(params[:id])
 
-    @play_word_sound = true
 
     @name = @level[:name]
     @description = @level[:description]

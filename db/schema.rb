@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017230311) do
+ActiveRecord::Schema.define(version: 20161023171826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,17 @@ ActiveRecord::Schema.define(version: 20161017230311) do
 
   add_index "levels", ["category_id"], name: "index_levels_on_category_id", using: :btree
 
+  create_table "user_configurations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.boolean  "sound"
+    t.boolean  "speak"
+    t.boolean  "microphone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_configurations", ["user_id"], name: "index_user_configurations_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -87,8 +98,6 @@ ActiveRecord::Schema.define(version: 20161017230311) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.boolean  "sound"
-    t.boolean  "microphone"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -127,6 +136,7 @@ ActiveRecord::Schema.define(version: 20161017230311) do
   add_foreign_key "level_words", "levels"
   add_foreign_key "level_words", "words"
   add_foreign_key "levels", "categories"
+  add_foreign_key "user_configurations", "users"
   add_foreign_key "word_scores", "categories"
   add_foreign_key "word_scores", "level_instances"
   add_foreign_key "word_scores", "users"

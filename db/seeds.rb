@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 user = User.create! :email => 'test@test.com', :password => 'password', :password_confirmation => 'password'
+UserConfiguration.create({:user => user, :sound => true, :speak => true, :microphone => true})
 
 # load 'scripts/load_words.rb'
 # load 'scripts/build_levels.rb'

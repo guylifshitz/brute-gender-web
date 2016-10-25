@@ -39,14 +39,17 @@
 // });
 
 
-$(".check_word").ready
-{
-  setTimeout(function(){ $("#next").click(); }, 500);
-}
+// $("#check-word-wrong").ready(function() {
+//   setTimeout(function(){ $("#next").click(); }, 5000);
+// });
 
-$("#word").ready(function() {
+// $("#check-word-right").ready(function() {
+//   setTimeout(function(){ $("#next").click(); }, 10);
+// });
+
+$("#word-speak").ready(function() {
   setTimeout(function(){ 
-    responsiveVoice.speak($("#word").text(), "French Female");
+    responsiveVoice.speak($("#word-speak").text(), "French Female");
   }, 500);
 });
 
@@ -70,10 +73,6 @@ document.onkeydown = function (e) {
 $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();
 });
-
-
-
-
 
 
 $(document).ready(function(){

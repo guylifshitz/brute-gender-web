@@ -45,7 +45,26 @@ Rails.application.routes.draw do
 
   resources :level_instances do
     resources :run, controller: 'level_instances/run'
+
+    post 'select_masculine', to: 'level_instances#select_masculine'
+    post 'select_feminine', to: 'level_instances#select_feminine'
+
   end
+
+  resources :users do
+    resource :user_configuration do
+      post 'enable_microphone', to: 'user_configurations#enable_microphone'
+      post 'disable_microphone', to: 'user_configurations#disable_microphone'
+
+      post 'enable_sound', to: 'user_configurations#enable_sound'
+      post 'disable_sound', to: 'user_configurations#disable_sound'
+
+      post 'enable_speak', to: 'user_configurations#enable_speak'
+      post 'disable_speak', to: 'user_configurations#disable_speak'
+    end
+  end
+
+
 
   # resource :level_instance do
   #   post :create_wrong_words_level

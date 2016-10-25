@@ -34,9 +34,6 @@ class CategoriesController < ApplicationController
     redirect_to categories_path
   end
 
-  def create
-  end
-
   def update
     if category_params
       @category = Category.find(params[:id])
@@ -94,7 +91,7 @@ class CategoriesController < ApplicationController
       category = Category.find(params[:category][:id])
       category.update(category_params)
     else
-      category = Category.create(category_params.merge({:word_frequency_maximum => 600000}))
+      category = Category.create(category_params.merge({:word_frequency_maximum => 1000000}))
     end
 
 
@@ -153,20 +150,28 @@ class CategoriesController < ApplicationController
   end
 
   def create_wrong_words_level
-     # TODO: move this sto category i think
       category = Category.find(params[:category_id])
       word_scores = WordScore.where({:user_id=>current_user, :category => category})
 
       wrong_words = []
       word_scores.each do |ws|
         if ws.correct == false
-          wrong_words.push(ws)
+          wrong_words.push(ws.word)
         end
       end
 
-      @level_instance = LevelInstance.new({:user => current_user, :category => category, :complete_count => 0, :correct_completion_percent => 0, :word_scores => wrong_words})
-      success = @level_instance.save
-      redirect_to level_instance_run_index_path(:level_instance_id => @level_instance.id)
+
+      l = Level.create({:name=>"Wrong words: #{category[:name]}", :description => "Words you got wrong.", :category => category})
+
+      wrong_words.uniq.each do |w|
+        LevelWord.create({:level => l, :word => w})
+      end
+
+      redirect_to category_level_path(category, l)
+
+      # @level_instance = LevelInstance.create({:user => current_user, :category => category, :complete_count => 0, :correct_completion_percent => 0, :word_scores => wrong_words})
+      # success = @level_instance.save
+      # redirect_to level_instance_run_index_path(:level_instance_id => @level_instance.id)
   end
 
   private

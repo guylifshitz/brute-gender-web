@@ -1,17 +1,36 @@
-
 <div class="jumbotron" id="show_word"> 
   <div class="container">
       <div align="right">
-      <% if @play_word_sound %>
-        <button class="btn btn-default" type="button"> <span class="glyphicon glyphicon-volume-off fa-1x" /></button>
-      <% else %>
-          <button class="btn btn-default" type="button"> <span class="glyphicon glyphicon-volume-up" /></button>
-      <% end %> 
+
+        <!-- DISABLE SPEAK -->
+        <% if @speak %>
+        <div id="disable-speak">
+        <% else %>
+        <div id="disable-speak" style="display: none;">
+        <% end %>
+          <%= link_to disable_speak_user_user_configuration_path(current_user.user_configuration), method: :post, class: "btn btn-default", remote: true do %>
+            <span class="glyphicon glyphicon-volume-up fa-1x" />
+          <% end %>
+        </div>
+
+        <!-- ENABLE SPEAK -->
+        <% if @speak %>
+        <div id="enable-speak" style="display: none;">
+        <% else %>
+        <div id="enable-speak">
+        <% end %>
+        
+          <%= link_to enable_speak_user_user_configuration_path(current_user.user_configuration), method: :post, class: "btn btn-default", remote: true do %>
+            <span class="glyphicon glyphicon-volume-off fa-1x" />
+          <% end %>
+        </div>
       </div>
 
-
-
-    <h1 align="center" id="word"><%= @word_score.word[:word] %></h1>
+    <% if @speak %>
+    <h1 align="center" id="word-speak"><%= @word_score.word[:word] %></h1>
+    <% else %>
+    <h1 align="center" id="word-mute"><%= @word_score.word[:word] %></h1>
+    <% end %>
     <p align="center" class="word-def-fr"><%= @definition_fr %> </p>
     <p align="center" class="word-def-en"><%= @definition_en %> </p>
 

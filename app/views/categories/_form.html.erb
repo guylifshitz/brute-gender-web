@@ -32,11 +32,12 @@
   <div class="row">
     <div class="col-xs-12"'>
       <div class="edit_category_words" id="selected_words">
-        <h3>Selected Words</h3>
+        <h3>Selected Words (<%= @selected_words.count %>)</h3>
         <table class="table">
           <thead>
             <tr>
-            <th width="40%">Score</th>
+            <th width="20%">Word</th>
+            <th width="10%">Gender</th>
             <th width="15%"><%= sortable("category_ranking", "Rank Score") %></th>
             <th width="15%"><%= sortable("url_frequency", "Source Frequency") %></th>
             <th width="15%"><%= sortable("frequency", "General Frequency") %></th>
@@ -48,6 +49,7 @@
               <td> <%= link_to category_word_disable_path(cat_word), :method => :post do %>
                       <span class="glyphicon glyphicon-remove" style='color:grey' />
                   <% end %> <%= link_to cat_word.word[:word], word_path(cat_word.word) %> </td>
+              <td> <%= cat_word.word[:gender] %> </td>
               <td> <%= number_with_delimiter(cat_word[:category_ranking].to_i) %> </td>
               <td> <%= number_with_delimiter(cat_word[:url_frequency]) %> </td>
               <td> <%= number_with_delimiter(cat_word.word[:frequency]) %> </td>
@@ -64,11 +66,12 @@
   <div class="row">
     <div class="col-xs-12"'>
       <div class="edit_category_words" id="removed_words">
-        <h3>Removed Words</h3>
+        <h3>Removed Words (<%= @removed_words.count %>)</h3>
         <table class="table">
           <thead>
             <tr>
-            <th width="40%">Score</th>
+            <th width="20%">Word</th>
+            <th width="10%">Gender</th>
             <th width="15%"><%= sortable("category_ranking", "Rank Score") %></th>
             <th width="15%"><%= sortable("url_frequency", "Source Frequency") %></th>
             <th width="15%"><%= sortable("frequency", "General Frequency") %></th>
@@ -80,6 +83,7 @@
               <td> <%= link_to category_word_enable_path(cat_word), :method => :post do %>
                       <span class="glyphicon glyphicon-plus" style='color:grey' />
                   <% end %> <%= link_to cat_word.word[:word], word_path(cat_word.word) %> </td>
+              <td> <%= cat_word.word[:gender] %> </td>
               <td> <%= number_with_delimiter(cat_word[:category_ranking].to_i) %> </td>
               <td> <%= number_with_delimiter(cat_word[:url_frequency]) %> </td>
               <td> <%= number_with_delimiter(cat_word.word[:frequency]) %> </td>
