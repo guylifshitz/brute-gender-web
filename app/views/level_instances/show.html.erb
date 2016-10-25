@@ -26,18 +26,17 @@
         </div>
       </div>
 
-    <% if @speak %>
-    <h1 align="center" id="word-speak"><%= @word_score.word[:word] %></h1>
-    <% else %>
-    <h1 align="center" id="word-mute"><%= @word_score.word[:word] %></h1>
-    <% end %>
-    <p align="center" class="word-def-fr"><%= @definition_fr %> </p>
-    <p align="center" class="word-def-en"><%= @definition_en %> </p>
+    <h1 align="center" id="word-text"><%= @word_score.word[:word] %></h1>
 
+    <p align="center" id="word-def-fr"><%= @definition_fr %> </p>
+    <p align="center" id="word-def-en"><%= @definition_en %> </p>
+
+    <br>
       <div class="row">
         <div class="col-sm-12 text-center"'>
-          <%= link_to "f", level_instance_select_feminine_path(@level_instance), method: :post, class: "btn btn-default", remote: true %>
-          <%= link_to "m", level_instance_select_masculine_path(@level_instance), method: :post, class: "btn btn-default"%>
+          <%= link_to "f", level_instance_select_feminine_path(@level_instance), method: :post, class: "btn btn-primary btn-lg", remote: true %>
+           &nbsp &nbsp
+          <%= link_to "m", level_instance_select_masculine_path(@level_instance), method: :post, class: "btn btn-primary btn-lg", remote: true %>
       </div>
     </div>
 </div>

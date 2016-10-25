@@ -51,19 +51,23 @@ class LevelInstancesController < ApplicationController
   def select_masculine
     level_instance = LevelInstance.find(params[:level_instance_id])
     level_instance.update_attribute(:complete_count,  level_instance[:complete_count] + 1)
-    render :show
+    set_definition level_instance
+    @speak = UserConfiguration.where({:user => current_user}).first[:speak]
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def select_feminine
-    ap params
     level_instance = LevelInstance.find(params[:level_instance_id])
     level_instance.update_attribute(:complete_count,  level_instance[:complete_count] + 1)
+    set_definition level_instance
+    @speak = UserConfiguration.where({:user => current_user}).first[:speak]
 
-    # respond_to do |format|
-    #   format.js
-    # end
-
-    render :show
+    respond_to do |format|
+      format.js
+    end
 
   end
   
@@ -73,14 +77,15 @@ private
     ap level_instance.word_scores
     @word_score = level_instance.word_scores[level_instance[:complete_count]]
 
-    word = @word_score.word
-
-    @definition_fr = word[:definition_fr]
+    w = @word_score.word
+    @word = w[:word]
+    
+    @definition_fr = w[:definition_fr]
     if @definition_fr == nil
       @definition_fr = "-"
     end
 
-    @definition_en = word[:definition_en]
+    @definition_en = w[:definition_en]
     if @definition_en == nil
       @definition_en = "-"
     else

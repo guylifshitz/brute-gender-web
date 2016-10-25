@@ -1,0 +1,12 @@
+$("#word-text").html("<%= @word %>");
+$("#word-def-fr").html("<%= @definition_fr %>");
+$("#word-def-en").html("<%= @definition_en %>");
+// $("#word-mute").hide();
+
+<% if @speak %>
+setTimeout(function(){ 
+  responsiveVoice.speak("<%= @word %>", "French Female");
+}, 200);
+<% end %>
+
+
