@@ -23,8 +23,7 @@ module Processing
         end
       end
 
-    Processing::BuildLevel.build_all_levels
-
+      Processing::BuildLevel.build_all_levels
 
     end
 

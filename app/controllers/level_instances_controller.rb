@@ -14,14 +14,9 @@ class LevelInstancesController < ApplicationController
     @level_instance = LevelInstance.new({:level => level, :user => current_user, :complete_count => 0, :correct_completion_percent => 0})
 
     level.words.each do |word|
-      ap @level_instance.level.category
       cat = @level_instance.level.category
-      ap "cat"
-      ap cat
       WordScore.create({:level_instance => @level_instance, :word => word, :category => cat, :user => current_user})
     end
-
-    success = @level_instance.save
 
     redirect_to action: "show", id: @level_instance
 
@@ -68,9 +63,7 @@ private
   end
 
   def check_word level_instance_id, gender
-    ap level_instance_id
     @level_instance = LevelInstance.find(level_instance_id)
-
     word_score = @level_instance.word_scores[@level_instance[:complete_count]]
     @correct = false
     @wait_time = 1500
@@ -78,7 +71,7 @@ private
       @correct = true
       @wait_time = 300
     end
-    word_score.update_attribute(:correct,  @correct)
+    word_score.update_attributes({:correct => @correct, :seen => true})
 
     @level_instance.update_attribute(:complete_count,  @level_instance[:complete_count] + 1)
     

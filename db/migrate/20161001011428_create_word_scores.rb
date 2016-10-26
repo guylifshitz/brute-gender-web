@@ -7,6 +7,7 @@ class CreateWordScores < ActiveRecord::Migration
       t.references :category, index: true, foreign_key: true
 
       t.boolean :correct
+      t.boolean :seen
 
       t.timestamps null: false
     end

@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 20161023171826) do
     t.integer  "user_id"
     t.integer  "category_id"
     t.boolean  "correct"
+    t.boolean  "seen"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end

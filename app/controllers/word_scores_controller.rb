@@ -3,8 +3,8 @@ class WordScoresController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    
-    all_word_scores = WordScore.where({:user_id => current_user})
+
+    all_word_scores = WordScore.where({:user_id => current_user, :seen => true})
 
     words_scores = {}
 
@@ -26,7 +26,5 @@ class WordScoresController < ApplicationController
       end
       @output_words.push({:word=>word_score[0], :gender => word_score[1].first.word[:gender], :count => word_score[1].count, :correct_count=>correct_count})
     end
-
   end
-
 end
