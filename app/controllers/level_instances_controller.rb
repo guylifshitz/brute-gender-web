@@ -13,7 +13,12 @@ class LevelInstancesController < ApplicationController
 
     @level_instance = LevelInstance.new({:level => level, :user => current_user, :complete_count => 0, :correct_completion_percent => 0})
 
-    level.words.each do |word|
+    @words = []
+    level.level_words.sort_by(&:updated_at).each do |lw|
+      @words.push(lw.word)
+    end
+
+    @words.each do |word|
       cat = @level_instance.level.category
       WordScore.create({:level_instance => @level_instance, :word => word, :category => cat, :user => current_user})
     end

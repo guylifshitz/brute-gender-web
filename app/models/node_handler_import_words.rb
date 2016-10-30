@@ -29,11 +29,25 @@ class NodeHandlerImportWords < Struct.new(:node, :word_counts)
 
           frequency = word_counts[word_text]
           if number == "s"
-            Word.create({:word=>word_text, :gender => gender, :definition_fr => definition_fr, :definition_en => english_translations, :frequency => frequency})
+            w = Word.where({:word => word_text}).first
+            if w
+              w.update_attributes({:gender => gender, :definition_fr => definition_fr, :definition_en => english_translations, :frequency => frequency})
+            else
+              Word.create({:word => word_text, :gender => gender, :definition_fr => definition_fr, :definition_en => english_translations, :frequency => frequency})
+            end
           elsif number == "sp"
-            Word.create({:word=>word_text, :gender => gender, :definition_fr => definition_fr, :definition_en => english_translations, :frequency => frequency})
+            Word.create({:word => word_text, :word_plural => word_text, :gender => gender, :definition_fr => definition_fr, :definition_en => english_translations, :frequency => frequency})
           elsif number == "p"
-            # Word.create({:word=>word_text, :word_plural =>word_text, :gender => gender, :definition_fr => definition_fr, :definition_en => english_translations})
+            word_plural = word_text
+            word_singular = definition_fr.sub!("Pluriel de ", "")
+            word_singular = definition_fr.sub!(".", "")
+
+            w = Word.where({:word => word_singular}).first
+            if w
+              w.update_attribute(:word_plural, word_plural)
+            else
+              Word.create({:word => word_singular, :word_plural => word_plural})
+            end
           else
             raise
           end

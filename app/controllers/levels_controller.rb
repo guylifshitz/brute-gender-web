@@ -21,6 +21,10 @@ class LevelsController < ApplicationController
   def show
     @level = Level.find(params[:id])
 
+    @words = []
+    @level.level_words.sort_by(&:updated_at).each do |lw|
+      @words.push(lw.word)
+    end
 
     @name = @level[:name]
     @description = @level[:description]

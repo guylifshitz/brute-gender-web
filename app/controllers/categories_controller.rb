@@ -87,7 +87,10 @@ class CategoriesController < ApplicationController
 
   def find_words
 
-    if params[:category][:id] == nil
+    ap "find_words"
+    ap params
+
+    if params[:category][:id] != nil
       category = Category.find(params[:category][:id])
       category.update(category_params)
     else
@@ -127,8 +130,7 @@ class CategoriesController < ApplicationController
       end
     end
 
-    @selected_words = @selected_words.sort_by { |k| k.word[:frequency] }
-    @selected_words = @selected_words.sort_by { |k| k[params[:url_frequency]] }
+    @selected_words = @selected_words.sort_by &:url_frequency
     @selected_words = @selected_words.reverse!
 
     @level_size = @selected_words.count
@@ -138,6 +140,8 @@ class CategoriesController < ApplicationController
 
     counter =0
     l = nil
+
+    # ap @selected_words
 
     @selected_words.each do |wc|
       w = wc.word

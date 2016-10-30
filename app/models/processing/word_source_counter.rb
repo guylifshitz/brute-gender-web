@@ -13,7 +13,7 @@ module Processing
      word_counts = {}
 
       urls.each do |url|
-        
+        url = url.strip       
         ap "Downloading and loading the URL..."
 
         if url.include? "lemonde.fr"
@@ -39,7 +39,7 @@ module Processing
         ap "Counting words"
 
         wiki_words.each do |wiki_word|
-          wiki_word = wiki_word.downcase
+          # wiki_word = wiki_word.downcase
           if word_counts[wiki_word]
             word_counts[wiki_word] = word_counts[wiki_word] + 1
           else
@@ -49,23 +49,48 @@ module Processing
 
       end
 
-      word_counts = word_counts.sort_by{ |_key, value| value }.reverse
+      # word_counts = word_counts.sort_by{ |_key, value| value }.reverse
   
       word_counts
     end
 
     
     def self.stuff word_counts, category
-      word_counts.each do |word|
-        if word[1] > 0
-          w = Word.where({:word => word[0]}).first
+      ap word_counts
+
+      word_counts.keys.each do |word|
+        ap word
+        if word_counts[word] > 0
+          w = Word.where("words.word = '#{word}' or words.word_plural = '#{word}'").first
+          ap w
           if w
             cw = CategoryWord.create()
             cw.word = w
             cw.category = category
-            cw.url_frequency = word[1]
+
+
+            singular_count = 0
+            singular_count = word_counts[w[:word]]
+            
+            plural_count = 0
+            if w[:word_plural]
+              if w[:word] != w[:word_plural]
+                plural_count = word_counts[w[:word_plural]]
+              end
+            end
+
+            word_counts[w[:word]] = -1
+            word_counts[w[:word_plural]] = -1
+
+            ap singular_count
+            ap plural_count
+
+            total_count = singular_count.to_i + plural_count.to_i
+
+            cw.url_frequency = total_count
+
             if w[:frequency]
-              cw.category_ranking = w[:frequency]/word[1].to_f
+              cw.category_ranking = w[:frequency]/total_count
             else
               cw.category_ranking = 0
             end
