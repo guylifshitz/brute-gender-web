@@ -63,7 +63,7 @@ module Processing
         if word_counts[word] > 0
           w = Word.where("words.word = '#{word}' or words.word_plural = '#{word}'").first
           ap w
-          if w
+          if w and w[:gender] != "e" and w[:word].length > 2
             cw = CategoryWord.create()
             cw.word = w
             cw.category = category

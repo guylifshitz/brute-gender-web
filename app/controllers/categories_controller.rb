@@ -9,6 +9,12 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @levels = @category.levels
+    @levels = @levels.sort_by(&:updated_at)
+
+    # @words = []
+    # @level.level_words.sort_by(&:updated_at).each do |lw|
+    #   @words.push(lw.word)
+    # end
 
     @level_completion = {}
 
@@ -21,7 +27,6 @@ class CategoriesController < ApplicationController
       end
       @level_completion[level.id] = highest_level_completion
     end
-
   end
 
   def destroy
@@ -90,7 +95,7 @@ class CategoriesController < ApplicationController
     ap "find_words"
     ap params
 
-    if params[:category][:id] != nil
+    if params[:category][:id] != nil and params[:category][:id] != ""
       category = Category.find(params[:category][:id])
       category.update(category_params)
     else

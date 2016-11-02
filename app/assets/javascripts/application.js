@@ -47,11 +47,11 @@
 //   setTimeout(function(){ $("#next").click(); }, 10);
 // });
 
-$("#word-speak").ready(function() {
-  setTimeout(function(){ 
-    responsiveVoice.speak($("#word-speak").text(), "French Female");
-  }, 500);
-});
+// $("#word-speak").ready(function() {
+//   setTimeout(function(){ 
+//     responsiveVoice.speak($("#word-speak").text(), "French Male");
+//   }, 500);
+// });
 
 document.onkeydown = function (e) {
   e = e || window.event;
@@ -66,7 +66,7 @@ document.onkeydown = function (e) {
   }
   if (e.keyCode == 32 )
   {
-    responsiveVoice.speak($("#word").text(), "French Female");
+    responsiveVoice.speak($("#word-text").text(), "French Female");
   }
 };
 
@@ -76,7 +76,7 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
-  if($('#word').length) {
+  if($('#word-text').length) {
     /*
 
     https://github.com/web-audio-components/overdrive
