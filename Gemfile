@@ -70,3 +70,4 @@ gem 'redis-rails'
 gem "thread_safe", '~> 0.3.4'
 
 gem 'dotenv-rails'
+gem 'pdf-reader'

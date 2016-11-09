@@ -13,46 +13,79 @@ module Processing
      word_counts = {}
 
       urls.each do |url|
-        url = url.strip       
+        url = url.strip
         ap "Downloading and loading the URL..."
 
-        if url.include? "lemonde.fr"
-          wiki_html = Nokogiri::HTML(open(url))
-          wiki_html = Nokogiri::HTML(wiki_html.xpath("//div[@class='entry-content']").inner_html)
-        elsif url.include? "wikipedia.org"
-          wiki_html = Nokogiri::HTML(open(url))
-          wiki_html = wiki_html.xpath("//div[@id='mw-content-text']")
-        else
-          wiki_html = Nokogiri::HTML(open(url))
+        type = "html"
+        
+        if url[-4..-1] == ".pdf"
+          type = "pdf"
         end
 
-
-        ap "Finding paragraph words"
-
-        wiki_words = []
-
-        wiki_html.xpath("//p").each do |wiki_paragraph|
-          p_words = wiki_paragraph.inner_text.scan /[[:alpha:]]+/
-          wiki_words = wiki_words + p_words
+        if type == "html"
+          text_words = process_html url
+        end
+        if type == "pdf"
+          text_words = process_pdf url
         end
 
         ap "Counting words"
 
-        wiki_words.each do |wiki_word|
-          # wiki_word = wiki_word.downcase
-          if word_counts[wiki_word]
-            word_counts[wiki_word] = word_counts[wiki_word] + 1
+        text_words.each do |text_word|
+          # text_word = text_word.downcase
+          if word_counts[text_word]
+            word_counts[text_word] = word_counts[text_word] + 1
           else
-            word_counts[wiki_word] = 1
+            word_counts[text_word] = 1
           end
         end
 
       end
 
       # word_counts = word_counts.sort_by{ |_key, value| value }.reverse
-  
+
       word_counts
     end
+
+    def self.process_pdf url
+      io = open(url)
+      reader = PDF::Reader.new(io)
+      document_text = ""
+      reader.pages.each do |page|
+        document_text = document_text + " " + page.text
+      end
+
+      word_counts = {}
+
+      document_words = document_text.scan /[[:alpha:]]+/
+
+      document_words
+    end
+
+    def self.process_html url
+      if url.include? "lemonde.fr"
+        wiki_html = Nokogiri::HTML(open(url))
+        wiki_html = Nokogiri::HTML(wiki_html.xpath("//div[@class='entry-content']").inner_html)
+      elsif url.include? "wikipedia.org"
+        wiki_html = Nokogiri::HTML(open(url))
+        wiki_html = wiki_html.xpath("//div[@id='mw-content-text']")
+      else
+        wiki_html = Nokogiri::HTML(open(url))
+      end
+
+
+      ap "Finding paragraph words"
+
+      wiki_words = []
+
+      wiki_html.xpath("//p").each do |wiki_paragraph|
+        p_words = wiki_paragraph.inner_text.scan /[[:alpha:]]+/
+        wiki_words = wiki_words + p_words
+      end
+
+      wiki_words
+    end
+
 
     
     def self.stuff word_counts, category
