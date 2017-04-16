@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
-  
 
   devise_for :users
-  
+
   require 'sidekiq/web'
   mount Sidekiq::Web => 'admin/sidekiq'
 
-  
-  get 'welcome/index'
+  # get :about, path: "a-propos", controller: "pages"
+  # get 'welcome/index'
+  get 'search', controller: "search"
+  post 'search/results', controller: "search"
+  get 'search/external', controller: "search"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -24,8 +26,19 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  resources :word
+  resources :words do 
+    member do
+      put 'add'
+    end
+  end
+
   resources :word_scores
+
+  resources :user_words do 
+    member do
+      put 'remove'
+    end
+  end
 
   resources :categories do
     post 'find_words', :on => :collection
