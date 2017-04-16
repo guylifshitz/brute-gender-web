@@ -13,7 +13,7 @@ set :user, "guy"
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/home/guy/brute-gender-web'
 
-set :linked_files, %w{scripts/lexique-dicollecte-fr-v5.6.csv scripts/GLAWI_FR_workParsed_D2015-12-26_R2016-05-18.xml .env.production}
+set :linked_files, %w{scripts/lexique-dicollecte-fr-v6.0.2.csv scripts/GLAWI_FR_workParsed_D2015-12-26_R2016-05-18.xml .env.production}
 set :linked_dirs, %w{log tmp}
 
 # Default value for :scm is :git
