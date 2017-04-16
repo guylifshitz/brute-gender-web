@@ -8,7 +8,8 @@ module Processing
   class WordProcessing
 
     def self.load_wikitionnary_words
-      word_counts = get_word_frequencies_efficient
+      word_counts = []
+      # word_counts = get_word_frequencies_efficient
 
       CategoryWord.destroy_all
       WordScore.destroy_all
@@ -17,7 +18,7 @@ module Processing
 
       Nokogiri::XML::Reader(File.open('scripts/GLAWI_FR_workParsed_D2015-12-26_R2016-05-18.xml')).each do |node|
         if node.name == 'article' && node.node_type == Nokogiri::XML::Reader::TYPE_ELEMENT
-          NodeHandlerImportWords.new(
+          NodeHandlerImportWords2.new(
             Nokogiri::XML(node.outer_xml).at('./article'), word_counts
           ).process
         end

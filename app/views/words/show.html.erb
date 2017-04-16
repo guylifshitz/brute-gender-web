@@ -1,0 +1,42 @@
+
+<div class="jumbotron" id="show_word"> 
+  <div class="container">
+      <div align="right">
+      <% if @play_word_sound %>
+        <button class="btn btn-default" type="button"> <span class="glyphicon glyphicon-volume-off fa-1x" /></button>
+      <% else %>
+          <button class="btn btn-default" type="button"> <span class="glyphicon glyphicon-volume-up" /></button>
+      <% end %> 
+      </div>
+
+    <h1 align="center" id="word-text"><%= @word_text %></h1>
+    <h2  align="center"> <i>  ( <%= @gender %> ) </i> </h2>
+    
+    <% counter = 0 %>
+    <ol>
+    <% @definitions.each do |definition| %>
+      <p align="center" class="word-def-fr">
+        <% counter = counter + 1 %>
+        <li>
+        <%= definition["definition"] %>
+        </li>
+      <% definition["examples"].each do |example| %>
+        <p><i> <%= example %> </i></p>
+      <% end %>
+      </p>
+
+      <% if @translations %>
+        <p>
+        <%= @translations["en"] %>
+        </p>
+      <% end %>
+    <% end %>
+    </ol>
+
+    <%= form_for @word, :url => {:action => 'add'}, method: :put do |f| %>
+        <%= f.submit %>
+    <% end  %>
+
+</div>
+
+

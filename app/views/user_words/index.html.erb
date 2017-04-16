@@ -1,0 +1,37 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+      <table class="table">
+
+        <thead>
+          <tr>
+            <th width="10%">Word</th>
+            <th width="50%">Definition</th>
+            <th width="20%">Seen</th>
+            <th width="20%">Correct</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @output_words.each do |word| %>
+            <tr>
+
+              <td align="left">
+                <%= link_to(word[:word_text], word) %>
+              </td>
+              <td align="left">
+                <% if word.word %>
+                  <%= word.word[:definitions][0]["definition"] %>
+                <% end %>
+              <td align="left">
+                <%= word[:examples][0]%>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+     </div>
+    </div>
+  </div>
+</div>

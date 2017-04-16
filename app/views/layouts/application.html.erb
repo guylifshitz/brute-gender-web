@@ -47,7 +47,13 @@
             <%= link_to "Levels", categories_path , :class=>"nav-item-link btn btn-navbar" %>
           </li>
           <li class="nav-item <%= cp_menu 'word_scores' %>">
-            <%= link_to "Your Words", word_scores_path, :class=>"nav-item-link btn btn-navbar" %>
+            <%= link_to "Test Words", word_scores_path, :class=>"nav-item-link btn btn-navbar" %>
+          </li>
+          <li class="nav-item <%= cp_menu 'word_scores' %>">
+            <%= link_to "Your Words", user_words_path, :class=>"nav-item-link btn btn-navbar" %>
+          </li>
+          <li class="nav-item <%= cp_menu 'word_scores' %>">
+            <%= link_to "Find Words", search_path, :class=>"nav-item-link btn btn-navbar" %>
           </li>
         <% end %>
       </ul>

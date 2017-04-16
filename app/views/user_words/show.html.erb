@@ -9,12 +9,11 @@
       <% end %> 
       </div>
 
-
-
-    <h1 align="center" id="word-text"><%= @word_text %></h1>
-    <h2  align="center"> <i>  ( <%= @gender %> ) </i> </h2>
-    <p align="center" class="word-def-fr"><%= @definition_fr %> </p>
-    <p align="center" class="word-def-en"><%= @definition_en %> </p>
+    <h1 align="center" id="word-text"><%= @user_word[:word_text] %></h1>
+    
+    <%= form_for @user_word, :url => {:action => 'remove'}, method: :put do |f| %>
+        <%= f.submit "remove word" %>
+    <% end  %>
 
 </div>
 
