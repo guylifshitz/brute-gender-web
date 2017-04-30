@@ -46,11 +46,12 @@ set :rvm_ruby_version, 'ruby-2.3.0@brute-gender'
 #
 # Global options
 # --------------
-#  set :ssh_options, {
+ set :ssh_options, {
 #    keys: %w(/home/rlisowski/.ssh/id_rsa),
 #    forward_agent: false,
 #    auth_methods: %w(password)
-#  }
+    :forward_agent => true
+ }
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
