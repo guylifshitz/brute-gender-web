@@ -4,13 +4,21 @@ class UserWordsController < ApplicationController
 
   before_action :authenticate_user!
 
+
   def index
     all_words = UserWord.where(:user_id => current_user)
 
-    @output_words = []
+    @words = []
+    # @output_words = []
+
     all_words.each do |word|
-      @output_words.push(word)
+      a_word = {}
+      a_word[:word] = word
+      a_word[:examples] = word[:examples].map {|x| bold_word_in_text(word[:word_text], x)}
+      @words.push(a_word)
     end
+    ap @words
+    
   end
 
   def show
@@ -30,4 +38,12 @@ class UserWordsController < ApplicationController
     @user_word.destroy
     redirect_to :action => :index
   end
+
+private
+
+  def bold_word_in_text(word, text)
+    ap word
+    return text.gsub(word, "<b>#{word}</b>")
+  end
+
 end

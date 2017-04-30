@@ -14,18 +14,18 @@
         </thead>
 
         <tbody>
-          <% @output_words.each do |word| %>
+          <% @words.each do |word| %>
             <tr>
-
+              
               <td align="left">
-                <%= link_to(word[:word_text], word) %>
+                <%= link_to(word[:word][:word_text], word[:word]) %>
               </td>
               <td align="left">
-                <% if word.word %>
-                  <%= word.word[:definitions][0]["definition"] %>
+                <% if word[:word].word %>
+                  <%= word.word[:word][:definitions][0]["definition"] %>
                 <% end %>
               <td align="left">
-                <%= word[:examples][0]%>
+                <%= word[:examples][0].html_safe %>
               </td>
             </tr>
           <% end %>
