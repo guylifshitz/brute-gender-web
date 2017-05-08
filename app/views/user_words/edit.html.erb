@@ -1,0 +1,54 @@
+
+<div class="jumbotron" id="show_word"> 
+  <div class="container">
+      <div align="right">
+      <% if @play_word_sound %>
+        <button class="btn btn-default" type="button"> <span class="glyphicon glyphicon-volume-off fa-1x" /></button>
+      <% else %>
+          <button class="btn btn-default" type="button"> <span class="glyphicon glyphicon-volume-up" /></button>
+      <% end %> 
+      </div>
+
+    <h1 align="center" id="word-text"><%= @user_word[:word_text] %></h1>
+
+    <h3> Definitions: </h3>
+    <ol>
+    <% @definitions.count.times do |i| %>
+      <% definition = @definitions[i] %>
+        <li>
+          <% def_id = "definition-#{i}" %>  
+          <span class="definition" id=<%= def_id%>> <%= definition["definition"] %> </span>
+        </li>
+    <% end %>
+    </ol>
+
+    <h3> Examples: </h3>
+    <% @definitions.count.times do |i| %>
+      <% definition = @definitions[i] %>
+      <% def_id = "definition-#{i}" %>  
+
+      <ol id=<%= def_id %>-examples class="examples" style="display: none">
+        <% definition["examples"].count.times do |ei| %>
+          <% exp_id = def_id + "_example-#{ei}" %>
+          <% a_def = definition["examples"][ei].gsub(@user_word[:word_text], "<b>#{@user_word[:word_text]}</b>") %>
+          <li><span class="example" id=<%= exp_id %>> <%= a_def.html_safe %> </span></li>
+        <% end %>
+      </ol>
+    <% end %>
+
+    <br>
+    <br>
+    <br>
+    <%= form_for @user_word do |f| %>
+        <%= f.text_area(:definition) %>
+        <%= f.text_area(:example) %>
+        <%= f.submit "update word" %>
+    <% end %>
+
+    <%= form_for @user_word, :url => {:action => 'remove'}, method: :put do |f| %>
+        <%= f.submit "remove word" %>
+    <% end  %>
+ 
+</div>
+
+

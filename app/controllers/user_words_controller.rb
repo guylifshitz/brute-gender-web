@@ -11,10 +11,12 @@ class UserWordsController < ApplicationController
     @words = []
     # @output_words = []
 
-    all_words.each do |word|
+    all_words.each do |user_word|
       a_word = {}
-      a_word[:word] = word
-      a_word[:examples] = word[:examples].map {|x| bold_word_in_text(word[:word_text], x)}
+      a_word[:user_word] = user_word
+      # a_word[:examples] = user_word[:examples].map {|x| bold_word_in_text(user_word[:word_text], x)}
+      a_word[:example] = bold_word_in_text(user_word[:word_text], user_word[:example])
+
       @words.push(a_word)
     end
     ap @words
@@ -29,8 +31,22 @@ class UserWordsController < ApplicationController
   end
 # 
 
+  def update
+    ap params
+
+    user_word = UserWord.find(params[:id])
+    user_word.update!(user_word_params)
+    redirect_to user_words_path
+  end
+
   def edit
     @user_word = UserWord.where({:id => params[:id]})[0]
+    word = Word.find(@user_word[:word_id])
+    @definitions = word[:definitions]
+    ap @definitions
+    # @definitions = []
+    # @examples = []
+
   end
 
   def remove
@@ -42,8 +58,16 @@ class UserWordsController < ApplicationController
 private
 
   def bold_word_in_text(word, text)
-    ap word
-    return text.gsub(word, "<b>#{word}</b>")
+    if text
+      return text.gsub(word, "<b>#{word}</b>")
+    end
+    return ""
+  end
+
+  def user_word_params
+    ap "params"
+    ap params
+    params.require(:user_word).permit(:definition, :example)
   end
 
 end

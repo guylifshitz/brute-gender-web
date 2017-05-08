@@ -11,7 +11,8 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+
+<body class="<%= controller_name %> <%= action_name %>" data-controller="<%= controller_path %>" data-action="<%= action_name %>">
 
 <% if notice %>
  <p class="alert alert-success"><%= notice %></p>

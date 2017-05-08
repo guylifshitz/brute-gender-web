@@ -8,8 +8,8 @@
           <tr>
             <th width="10%">Word</th>
             <th width="50%">Definition</th>
-            <th width="20%">Seen</th>
-            <th width="20%">Correct</th>
+            <th width="20%">Example</th>
+            <th width="20%">Url</th>
           </tr>
         </thead>
 
@@ -18,14 +18,17 @@
             <tr>
               
               <td align="left">
-                <%= link_to(word[:word][:word_text], word[:word]) %>
+                <%= link_to(word[:user_word][:word_text], edit_user_word_path(word[:user_word])) %>
               </td>
               <td align="left">
-                <% if word[:word].word %>
-                  <%= word[:word].word[:definitions][0]["definition"] %>
+                <% if word[:user_word].word %>
+                  <%= word[:user_word][:definition] %>
                 <% end %>
               <td align="left">
-                <%= word[:examples][0].html_safe %>
+                <%= word[:example].html_safe %>
+              </td>
+              <td align="left">
+                <%= link_to word[:user_word][:source_url], word[:user_word][:source_url] %>
               </td>
             </tr>
           <% end %>

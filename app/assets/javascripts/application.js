@@ -284,3 +284,28 @@ $(document).ready(function(){
    }
   }
 });
+
+
+
+
+
+
+
+$(document).on('turbolinks:load', function() {
+    if (($('*[data-controller="user_words"]').length > 0) && ($('*[data-action="edit"]').length > 0)) {
+        $('.definition').on('click', function () {
+          $('.definition').css('color', 'blue');
+          $(this).css('color', 'red');
+          $(".examples").hide();
+          var exp_id = $(this).attr('id')+"-examples";
+          $("#"+exp_id).show();
+          document.getElementById('user_word_definition').value= $(this).text() ; 
+        });
+        $('.example').on('click', function () {
+          $('.example').css('color', 'blue');
+          $(this).css('color', 'red');
+          document.getElementById('user_word_example').value= $(this).text() ; 
+        });
+    }
+});
+
