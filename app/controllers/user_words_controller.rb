@@ -6,7 +6,7 @@ class UserWordsController < ApplicationController
 
 
   def index
-    all_words = UserWord.where(:user_id => current_user)
+    all_words = UserWord.where(:user_id => current_user).order(created_at: :desc)
 
     @words = []
     # @output_words = []

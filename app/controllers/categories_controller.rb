@@ -64,6 +64,8 @@ class CategoriesController < ApplicationController
         else
           @removed_words.push(w)
         end
+      else
+        @selected_words.push(w)
       end
     end
 
