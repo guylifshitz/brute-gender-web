@@ -1,6 +1,5 @@
-#      word_counts = word_counts = Processing::WordProcessing.get_word_frequencies_efficient
-
-# }
+# word_counts = Processing::WordProcessing.get_word_frequencies_efficient
+# Processing::WordProcessing.load_wikitionnary_words
 # Processing::WordProcessing.add_frequencies
 
 module Processing
@@ -8,8 +7,9 @@ module Processing
   class WordProcessing
 
     def self.load_wikitionnary_words
-      # word_counts = []
+      word_counts = []
       word_counts = get_word_frequencies_ngrams
+      ActiveRecord::Base.logger = nil
 
       CategoryWord.destroy_all
       WordScore.destroy_all

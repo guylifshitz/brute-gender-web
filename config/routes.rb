@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post 'search/results', controller: "search"
   get 'search/external', controller: "search"
   get 'api/definitions', controller: "api"
+  get 'api/add_user_word', controller: "api"
   # get 'search/get_definitions', controller: "search"
   get 'notes/external', controller: "notes"
 
