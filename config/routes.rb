@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get 'search', controller: "search"
   post 'search/results', controller: "search"
   get 'search/external', controller: "search"
+  get 'api/definitions', controller: "api"
+  # get 'search/get_definitions', controller: "search"
+  get 'notes/external', controller: "notes"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
