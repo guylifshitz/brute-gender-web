@@ -21,9 +21,7 @@
                 <%= link_to(word[:user_word][:word_text], edit_user_word_path(word[:user_word])) %>
               </td>
               <td align="left">
-                <% if word[:user_word].word %>
-                  <%= word[:user_word][:definition] %>
-                <% end %>
+                <%= word[:user_word][:definition] %>
               <td align="left">
                 <%= word[:example].html_safe %>
               </td>

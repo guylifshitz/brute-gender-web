@@ -42,12 +42,18 @@
     <%= form_for @user_word do |f| %>
         <%= f.text_area(:definition) %>
         <%= f.text_area(:example) %>
-        <%= f.submit "update word" %>
+        <div>  
+        <%= f.submit "update word", :class => 'btn btn-primary' %>
+        </div>
     <% end %>
 
+    <br>
+
+    <div>
     <%= form_for @user_word, :url => {:action => 'remove'}, method: :put do |f| %>
-        <%= f.submit "remove word" %>
+        <%= f.submit "remove word", :class => 'btn btn-danger' %>
     <% end  %>
+    </div>
  
 </div>
 

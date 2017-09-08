@@ -122,8 +122,8 @@ module Processing
 
             cw.url_frequency = total_count
 
-            if w[:frequency]
-              cw.category_ranking = w[:frequency]/total_count
+            if w[:frequency_lemma]
+              cw.category_ranking = w[:frequency_lemma]/total_count
             else
               cw.category_ranking = 0
             end
@@ -136,8 +136,8 @@ module Processing
 # word_score_maximum
     def self.select_included_words category
       category.category_words.each do |cw|
-        if cw.word[:frequency]
-          if cw.word[:frequency] < category[:word_frequency_maximum]
+        if cw.word[:frequency_lemma]
+          if cw.word[:frequency_lemma] < category[:word_frequency_maximum]
             cw.update_attribute(:include_word, true)
           else
             cw.update_attribute(:include_word, false)

@@ -1,5 +1,5 @@
 class NodeHandlerImportWords2 < Struct.new(:node, :word_counts)
-  
+
   def get_paradigms pos
       ret_inflections = {}
       begin
@@ -41,7 +41,8 @@ class NodeHandlerImportWords2 < Struct.new(:node, :word_counts)
 
                   definitions.append({"definition": def_text, "labels": ret_labels, "examples": examples})
             end
-      rescue
+      rescue => e
+            ap e
       end
       definitions
   end
@@ -112,115 +113,97 @@ class NodeHandlerImportWords2 < Struct.new(:node, :word_counts)
 
   end
 
+  def get_word_counts(word, type)
+      frequency = nil
+      frequency_lemma = nil
 
+      begin
+            frequency = word_counts[word][type]
+            return frequency
+      rescue
+            ap "failed get frequency on word (#{type}): " + word
+      end
+
+      begin
+            frequency_lemma = word_counts[word]["lemma"]
+            return frequency_lemma
+      rescue
+            ap "failed get frequency on word (lemma): " + word
+      end
+
+      return nil
+      # return frequency, frequency_lemma
+  end
+
+  def convert_types(pos)
+    # word_types = [["adj","adjectif"], ["det", "det"], "adv", "pron", ["verb", "verbe"], "adp", "conj", "noun", "prt"]
+    word_types = {"adjectif"=> "adj", "adverbe" => "adv", "verbe" => "verb", "nom" => "noun"}
+     # "det", "pron", "adp", "conj", "prt"
+    pos = word_types.fetch(pos, pos)
+
+    pos
+  end
 
   def process
-    cur_pos = nil
-    begin
+    begin 
       # ap node
       word_text = node.at("title").inner_text
 
       pos = node.search("pos")
-      # ap pos
+      debug_cur_pos = pos
+
       pos.each do |p|
-            cur_pos = p
-            type = p.attribute("type").value
-            lemma = p.attribute("lemma").value
-            locution = p.attribute("locution").value
+        debug_cur_pos = p
 
-            if lemma == "1" and locution == "0"
-                  # ap "-------"
-                  # ap "-------"
-                  # ap "-------"
-                  # ap "-------"
-                  # ap "-------"
-                  # ap "-------"
-                  # ap word_text
+        pos_type = p.attribute("type").value
+        pos_type = convert_types(pos_type)
 
-                  definitions = get_definitions(pos)
-                  paradigms = get_paradigms(pos)
-                  translations = get_translations(pos)
-                  semantic_relations = get_semRel(pos)
-                  morphos = get_morphos(pos)
-                  alternative_forms = get_alternativeForm(pos)
+        lemma = p.attribute("lemma").value
+        locution = p.attribute("locution").value
 
-                  if type == "nom"
-                        # gender = p.attribute("gender").value
-                        # number = p.attribute("number").value
-                        # ap gender
-                        # ap number
-                  end
+        if lemma == "1" and locution == "0"
 
-                  if type == "verbe"
-                        # ap "verbe"
-                        # ap p.attributes
-                        # gender = p.attribute("gender").value
-                        # number = p.attribute("number").value
-                        # ap gender
-                        # ap number
-                  end
+          definitions = get_definitions(pos)
+          paradigms = get_paradigms(pos)
+          translations = get_translations(pos)
+          semantic_relations = get_semRel(pos)
+          morphos = get_morphos(pos)
+          alternative_forms = get_alternativeForm(pos)
+          word_count = get_word_counts(word_text, pos_type)
 
-                  if type == "adverbe"
-                        # ap "adverbe"
-                        # ap p.attributes
-                        # gender = p.attribute("gender").value
-                        # number = p.attribute("number").value
-                        # ap gender
-                        # ap number
-                  end
+          if pos_type == "nom"
+            gender = p.attribute("gender").try(:value)
+            ap gender
+            plural = p.attribute("number").try(:value)
+          end
 
-                  if type == "adjective"
-                        # ap "adjective"
-                        # ap p.attributes
-                        # gender = p.attribute("gender").value
-                        # number = p.attribute("number").value
-                        # ap gender
-                        # ap number
-                  end
+          if pos_type == "adjective"
+            gender = p.attribute("gender").try(:value)
+            plural = p.attribute("number").try(:value)
+          end
 
-                  Word.create({:word => word_text, :word_type => type, :locution => (locution == "1"), :definitions => definitions, :translations => translations,
-                   :semantic_relations => semantic_relations, :morphos => morphos, :alternative_forms => alternative_forms}.merge(paradigms))
+          if pos_type == "verbe"
+          end
 
+          if pos_type == "adverbe"
+          end
 
-            end
-
-
+          Word.create({:text => word_text, :pos => pos_type, :locution => (locution == "1"), :definitions => definitions,
+                       :translations => translations, :semantic_relations => semantic_relations, :morphos => morphos,
+                       :alternative_forms => alternative_forms, :gender=> gender, :plural => plural, :frequency => word_count}
+                       .merge(paradigms));
+        end
       end
+    rescue => exception
+      Rails.logger.debug "Word Creation Faild: #{word_text}"
+      Rails.logger.debug exception
+      Rails.logger.debug exception.backtrace.join("\n")
+      ap debug_cur_pos
+    end
+  end
+end
 
-            # if type == "verb"
-            #       # gender = p.attribute("gender").value
-            #       # number = p.attribute("number").value
-            # end
 
-            # if type == "adjective"
-            #       # gender = p.attribute("gender").value
-            #       # number = p.attribute("number").value
-            # end
-
-            # if type == "adverbe"
-            #       # gender = p.attribute("gender").value
-            #       # number = p.attribute("number").value
-            # end
-
-      # end
- 
-      #   if type == "nom"
-      #     gender = p.attribute("gender").value
-      #     number = p.attribute("number").value
-
-      #      # get definition
-      #     definition_fr = p.at("definition").at("gloss").at("txt").inner_text
-
-      #     # # get translations
-      #     translations = p.at("translations")
-      #     english_translations = []
-      #     if translations
-      #       translations.search("trans").each do |trans|
-      #         if trans.attribute("lang").value == "en"
-      #           english_translations.push(trans.inner_text) 
-      #         end
-      #       end
-      #     end
 
       #     frequency = word_counts[word_text]
       #     if number == "s"
@@ -275,15 +258,4 @@ class NodeHandlerImportWords2 < Struct.new(:node, :word_counts)
       #     end
       #   end
       # end
-
-
-    rescue => exception
-      Rails.logger.debug "Word Creation Faild: #{word_text}"
-      Rails.logger.debug exception
-      Rails.logger.debug exception.backtrace.join("\n")
-      Rails.logger.debug cur_pos
-    end
-  end
-end
-
 

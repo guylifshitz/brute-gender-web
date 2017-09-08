@@ -58,7 +58,7 @@ class CategoriesController < ApplicationController
     @removed_words = []
   
     @category.category_words.each do |w|
-      if w.word[:frequency] != nil
+      if w.word[:frequency_lemma] != nil
         if w.include_word
           @selected_words.push(w)
         else
@@ -70,8 +70,8 @@ class CategoriesController < ApplicationController
     end
 
     if params[:sort] == "frequency"
-      @selected_words = @selected_words.sort_by { |k| k.word[:frequency] }
-      @removed_words = @removed_words.sort_by { |k| k.word[:frequency] }
+      @selected_words = @selected_words.sort_by { |k| k.word[:frequency_lemma] }
+      @removed_words = @removed_words.sort_by { |k| k.word[:frequency_lemma] }
     else
       @selected_words = @selected_words.sort_by { |k| k[params[:sort]] }
       @removed_words = @removed_words.sort_by { |k| k[params[:sort]] }

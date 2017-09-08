@@ -52,7 +52,8 @@
               <td> <%= cat_word.word[:gender] %> </td>
               <td> <%= number_with_delimiter(cat_word[:category_ranking].to_i) %> </td>
               <td> <%= number_with_delimiter(cat_word[:url_frequency]) %> </td>
-              <td> <%= number_with_delimiter(cat_word.word[:frequency]) %> </td>
+              <td> <%= number_with_delimiter(cat_word.word[:frequency_lemma]) %> </td>
+              <td> BLASG </td>
               <td>  
               </td>
              </tr>
@@ -86,7 +87,7 @@
               <td> <%= cat_word.word[:gender] %> </td>
               <td> <%= number_with_delimiter(cat_word[:category_ranking].to_i) %> </td>
               <td> <%= number_with_delimiter(cat_word[:url_frequency]) %> </td>
-              <td> <%= number_with_delimiter(cat_word.word[:frequency]) %> </td>
+              <td> <%= number_with_delimiter(cat_word.word[:frequency_lemma]) %> </td>
               <td>  
               </td>
              </tr>
