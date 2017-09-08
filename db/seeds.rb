@@ -12,7 +12,7 @@ UserConfiguration.create({:user => user, :sound => true, :speak => true, :microp
 # load 'scripts/load_words.rb'
 # load 'scripts/build_levels.rb'
 
-LoadWiktionnaryWordsWorker.perform_async
+# LoadWiktionnaryWordsWorker.perform_async
 
 
 

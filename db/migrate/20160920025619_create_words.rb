@@ -2,11 +2,11 @@ class CreateWords < ActiveRecord::Migration
   def change
     create_table :words do |t|
 
-      t.string   :word
-      t.string   :word_plural
+      t.string   :text
+      # t.string   :word_plural
 
-      t.string   :word_type
-      t.boolean   :locution
+      t.string   :pos
+      t.boolean  :locution
 
       t.jsonb :definitions
       t.jsonb :translations
@@ -15,6 +15,7 @@ class CreateWords < ActiveRecord::Migration
       t.text :alternative_forms, array: true, default: []
 
       t.string  :gender
+      t.string  :plural
 
       t.integer  :frequency
 
