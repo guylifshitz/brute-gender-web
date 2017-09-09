@@ -40,13 +40,17 @@ class UserWordsController < ApplicationController
   end
 
   def edit
+
     @user_word = UserWord.where({:id => params[:id]})[0]
-    begin
-      word = Word.find(@user_word[:word_id])
-      @definitions = word[:definitions]
-    rescue
-      @definitions = []
+    word_text = @user_word[:word_text]
+    ps = Word.find_words(word_text)
+
+    @pos = []
+    ps.each do |p|
+      @pos.append(p)
     end
+
+    ap @pos
 
   end
 

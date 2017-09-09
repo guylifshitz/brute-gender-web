@@ -13,18 +13,21 @@
 
     <h3> Definitions: </h3>
     <ol>
-    <% @definitions.count.times do |i| %>
-      <% definition = @definitions[i] %>
-        <li>
-          <% def_id = "definition-#{i}" %>  
-          <span class="definition" id=<%= def_id%>> <%= definition["definition"] %> </span>
-        </li>
+    <% @pos.each do |p| %>
+      <%= p.pos %> <%= p.plural %> <br>
+      <% p.definitions.count.times do |i| %>
+         <% definition = p.definitions[i] %>
+          <li>
+          <span class="definition" id=<%= "definition-#{i}" %>> <%= definition["definition"] %> </span>
+          </li>
+      <% end %>
     <% end %>
     </ol>
 
     <h3> Examples: </h3>
-    <% @definitions.count.times do |i| %>
-      <% definition = @definitions[i] %>
+    <% @pos.each do |p| %>
+    <% p.definitions.count.times do |i| %>
+      <% definition = p.definitions[i] %>
       <% def_id = "definition-#{i}" %>  
 
       <ol id=<%= def_id %>-examples class="examples" style="display: none">
@@ -35,6 +38,8 @@
         <% end %>
       </ol>
     <% end %>
+    <% end %>
+
 
     <br>
     <br>

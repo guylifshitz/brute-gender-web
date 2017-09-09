@@ -9,7 +9,7 @@
       <% end %> 
       </div>
 
-    <h1 align="center" id="word-text"><%= @user_word[:word_text] %></h1>
+    <h1 align="center" id="word-text"><%= @user_word[:text] %></h1>
     
     <%= form_for @user_word, :url => {:action => 'remove'}, method: :put do |f| %>
         <%= f.submit "remove word" %>
