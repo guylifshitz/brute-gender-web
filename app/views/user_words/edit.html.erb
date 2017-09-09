@@ -45,8 +45,13 @@
     <br>
     <br>
     <%= form_for @user_word do |f| %>
-        <%= f.text_area(:definition) %>
-        <%= f.text_area(:example) %>
+    <b>Definition:</b><br>
+        <%= f.text_area :definition,  :cols => 50, :rows => 5 %>
+        <br>
+        <br>
+        <b>Example:</b><br>
+        <%= f.text_area :example,  :cols => 50, :rows => 5 %>
+
         <div>  
         <%= f.submit "update word", :class => 'btn btn-primary' %>
         </div>
