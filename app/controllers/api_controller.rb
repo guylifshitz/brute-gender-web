@@ -25,10 +25,14 @@ class ApiController < ApplicationController
     update_hash[:source_word] = word_text
     update_hash[:type] = add_user_word_params[:type]
 
+    update_hash[:definition] = add_user_word_params[:definition]
+
     if w
       ap w[:id]
       update_hash[:word_text] = w[:text]
-      update_hash[:definition] = w[:definitions][0]["definition"]
+      if update_hash[:definition] == nil
+        update_hash[:definition] = w[:definitions][0]["definition"]
+      end
     else
       update_hash[:word_text] = word_text
       update_hash[:definition] = ""
@@ -54,6 +58,6 @@ private
   end
 
   def add_user_word_params
-    params.permit(:word, :user_id, :example, :url, :type)
+    params.permit(:word, :user_id, :example, :url, :type, :definition)
   end
 end
